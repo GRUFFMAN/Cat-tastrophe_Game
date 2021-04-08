@@ -200,7 +200,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1152873022549277413}
   - component: {fileID: 1152873022549277410}
-  - component: {fileID: 1152873022549277411}
   - component: {fileID: 1152873022549277412}
   - component: {fileID: 1152873022549277414}
   - component: {fileID: 1152873022549277415}
@@ -269,14 +268,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1152873022549277411
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1152873022549277408}
-  m_Enabled: 1
 --- !u!114 &1152873022549277412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabSpeed: 100
+  maxDistance: 1
 --- !u!1 &1152873022884409454
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +375,21 @@ MonoBehaviour:
   gravity: 0
   speed: 0.12
   jumpForce: 250
-  storeJump: 0
+  varJumpForce: 5
+  rayCastDistBelow: 0.59
+  maxSpeed: 1
+  MaxInitialAcceleration: 0.1
+  sprintMulitlpier: 1.5
+  my_LandSound: {fileID: 0}
+  my_JumpSound: {fileID: 0}
+  my_FootStep: {fileID: 0}
+  my_AudioSource: {fileID: 0}
+  meow1: {fileID: 0}
+  meow2: {fileID: 0}
+  meow3: {fileID: 0}
+  meow4: {fileID: 0}
+  loadedMeowSound: {fileID: 0}
+  my_AudioMeow: {fileID: 0}
 --- !u!54 &1152873022884413330
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -19,6 +19,20 @@ public class PlayerController3D : MonoBehaviour
         [SerializeField] float MaxInitialAcceleration = 0.1f;
         [SerializeField] float sprintMulitlpier = 1.5f;
     
+    // Audio Stuffs
+    [Header("Audio Sounds Movement")]
+        [SerializeField] public AudioClip my_LandSound;
+        [SerializeField]public AudioClip my_JumpSound; 
+        [SerializeField]public AudioClip my_FootStep; 
+        [SerializeField]public AudioSource my_AudioSource;
+
+    [Header("Audio Sounds Meow")]
+        [SerializeField]public AudioClip meow1;
+        [SerializeField]public AudioClip meow2;
+        [SerializeField]public AudioClip meow3;
+        [SerializeField]public AudioClip meow4;
+        [SerializeField]public AudioClip loadedMeowSound;
+    
     // WASD Axis 
     float walkZ;
     float walkX;
@@ -49,17 +63,10 @@ public class PlayerController3D : MonoBehaviour
         {
             Jump();
         }
-        
-        if(Input.GetKey(KeyCode.LeftShift)) // controls for switch statement
+        if(Input.GetKeyDown(KeyCode.E))
         {
-            sprintMode = 2; // if shift we sprint
+            PlayMeowSounds();
         }
-        else
-        {
-            sprintMode = 1; // else we walk
-        }
-        
-        
     }
 
     // Fixed update for movement
@@ -70,23 +77,14 @@ public class PlayerController3D : MonoBehaviour
         acceleration *= Mathf.Clamp(1.0f - (currentVelocity / maxSpeed), 0.0f, 1.0f);
         currentVelocity += acceleration;
         
-        switch (sprintMode)
+        if(Input.GetKey(KeyCode.LeftShift)) // controls for sprint
         {
-            // if shift is not held we walk
-            case 1:
-                transform.position += (transform.forward * walkZ * speed) + (transform.right * speed * walkX);
-                
-                Debug.Log("Walking it off");
-                break;
-            
-            // In a case 2, which is when shift is pressed. we use acceleration curve
-            case 2:
-                transform.position += (transform.forward * acceleration * sprintMulitlpier) + (transform.right * speed * walkX);
-                Debug.Log("I am running");
-                break;
+            transform.position += (transform.forward * acceleration * sprintMulitlpier) + (transform.right * speed * walkX);
         }
-        
-        
+        else
+        {
+            transform.position += (transform.forward * walkZ * speed) + (transform.right * speed * walkX);
+        }
         
         if(canVarJump == true)
         {
@@ -101,6 +99,50 @@ public class PlayerController3D : MonoBehaviour
         }
     }
 
+    ///////////////////////////////////// Audio Functions //////////////////////////////////////////
+
+    private void PlayJumpSound()
+    {
+        my_AudioSource.clip = my_JumpSound;
+        my_AudioSource.Play();
+    }
+
+    private void PlayLandSound()
+    {
+        my_AudioSource.clip = my_LandSound;
+        my_AudioSource.Play();
+    }
+    
+    private void PlayMeowSounds()
+    {
+        int temp = Random.Range(1, 5);
+        Debug.Log(temp);
+        switch (temp)
+        {
+            case 1:
+                loadedMeowSound = meow1;
+                break;
+            case 2:
+                loadedMeowSound = meow2;
+                break;
+            case 3:
+                loadedMeowSound = meow3;
+                break;
+            case 4:
+                loadedMeowSound = meow4;
+                break;
+        }   
+        my_AudioSource.clip = loadedMeowSound;
+        my_AudioSource.Play();
+    }
+    
+    ///////////////////////////////////// Trigger Function ////////////////////////////////////////
+
+    private void OnTriggerEnter(Collider other)
+    {
+        PlayLandSound();
+    }
+
     ///////////////////////////////////// Jump Functions //////////////////////////////////////////
 
     // Handles jump, calls the grounded to check if we on ground
@@ -113,6 +155,7 @@ public class PlayerController3D : MonoBehaviour
             myRigidbody.AddForce(Vector3.up * jumpForce);
             canVarJump = true;
             isGrounded = false;
+            PlayJumpSound();
         }
     }
     void JumpVar()
