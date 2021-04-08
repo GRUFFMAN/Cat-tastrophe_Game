@@ -1085,7 +1085,7 @@ GameObject:
   - component: {fileID: 1943933598}
   - component: {fileID: 1943933597}
   - component: {fileID: 1943933596}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Ground (1)
   m_TagString: break
   m_Icon: {fileID: 0}
@@ -1230,6 +1230,14 @@ PrefabInstance:
       propertyPath: mouseSensitivity
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 1152873022549277413, guid: ade7df8a69c7f9d46b226f6ae3aae6e3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.053
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152873022549277413, guid: ade7df8a69c7f9d46b226f6ae3aae6e3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.266
+      objectReference: {fileID: 0}
     - target: {fileID: 1152873022884409454, guid: ade7df8a69c7f9d46b226f6ae3aae6e3, type: 3}
       propertyPath: m_Name
       value: PlayerController
@@ -1240,7 +1248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1152873022884413328, guid: ade7df8a69c7f9d46b226f6ae3aae6e3, type: 3}
       propertyPath: m_Size.x
-      value: 0.53937006
+      value: 0.5770109
       objectReference: {fileID: 0}
     - target: {fileID: 1152873022884413328, guid: ade7df8a69c7f9d46b226f6ae3aae6e3, type: 3}
       propertyPath: m_Size.y
@@ -1252,7 +1260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1152873022884413328, guid: ade7df8a69c7f9d46b226f6ae3aae6e3, type: 3}
       propertyPath: m_Center.x
-      value: 0.0014870167
+      value: -0.0028541982
       objectReference: {fileID: 0}
     - target: {fileID: 1152873022884413328, guid: ade7df8a69c7f9d46b226f6ae3aae6e3, type: 3}
       propertyPath: m_Center.y
@@ -1260,7 +1268,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1152873022884413328, guid: ade7df8a69c7f9d46b226f6ae3aae6e3, type: 3}
       propertyPath: m_Center.z
-      value: 0.11866465
+      value: 0.11866462
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152873022884413329, guid: ade7df8a69c7f9d46b226f6ae3aae6e3, type: 3}
+      propertyPath: speed
+      value: 0.075
       objectReference: {fileID: 0}
     - target: {fileID: 1152873022884413329, guid: ade7df8a69c7f9d46b226f6ae3aae6e3, type: 3}
       propertyPath: jumpForce

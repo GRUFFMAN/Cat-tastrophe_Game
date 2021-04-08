@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   humanRef: {fileID: 0}
   deadModel: {fileID: 8653913480968909822, guid: 1fb81364056a8ce45920924c290add8c, type: 3}
-  breakPoint: 4
+  breakPoint: 3.8
   acceleration: 0
   distancemoved: 0
   lastdistancemoved: 0

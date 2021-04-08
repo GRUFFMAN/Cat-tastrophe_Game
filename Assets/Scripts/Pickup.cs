@@ -9,6 +9,7 @@ public class Pickup : MonoBehaviour
 	Rigidbody heldRigidbody; 
     // The force applied to an object when hit.
     public float grabSpeed = 100f;
+	public float maxDistance = 1f;
     bool itemGrabbed = false; //has an item been grabbed or not.
     bool itemPulling = false; //is the item currently being pulled toward the player.
 
@@ -26,12 +27,12 @@ public class Pickup : MonoBehaviour
 	            RaycastHit hit;
 	            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-	            if (Physics.Raycast(ray, out hit))
+	            if (Physics.Raycast(ray, out hit, maxDistance))
 	            {
 	                if (hit.transform != null)
 	                {
 	                	heldItem = hit.transform.gameObject;
-	                	if (heldItem.layer == 0)
+	                	if (heldItem.layer == 9)
 	                	{
 	                		itemGrabbed = true;
 	                		itemPulling = true;
@@ -80,7 +81,7 @@ public class Pickup : MonoBehaviour
         {
         	if (itemGrabbed != false)
         	{
-        		heldItem.layer = 0;
+        		heldItem.layer = 9;
         		itemGrabbed = false;
         		heldRigidbody.useGravity = true;
         	}

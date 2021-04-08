@@ -6,11 +6,18 @@ public class PlayerController3D : MonoBehaviour
 {
     ///////////////////////////////////// Variables //////////////////////////////////////////
     // Floats for stuffs
-    public float gravity = -1f;
-    public float speed = 1.0f;
-    public float jumpForce = 200.0f;
-    public float varJumpForce = 5f;
-    public float rayCastDistBelow = 0.59f;
+    [Header("Controller Constants")]
+        [SerializeField] public float gravity = -1f; // unused variable for custom gravity controls
+        [SerializeField] public float speed = 1.0f;
+        [SerializeField] public float jumpForce = 200.0f;
+        [SerializeField] public float varJumpForce = 5f;
+        [SerializeField] public float rayCastDistBelow = 0.59f;
+
+    // parameters for acceleration curver on sprint
+    [Header("Spint Curve Controls")]
+        [SerializeField] float maxSpeed = 1f;
+        [SerializeField] float MaxInitialAcceleration = 0.1f;
+        [SerializeField] float sprintMulitlpier = 1.5f;
     
     // WASD Axis 
     float walkZ;
@@ -21,7 +28,8 @@ public class PlayerController3D : MonoBehaviour
 
     // Bool for tracking if we are on the ground
     bool isGrounded;
-    public bool canVarJump = false;
+    bool canVarJump = false;
+    int sprintMode;
 
     ///////////////////////////////////// Standard Functions //////////////////////////////////////////
 
@@ -42,13 +50,43 @@ public class PlayerController3D : MonoBehaviour
             Jump();
         }
         
+        if(Input.GetKey(KeyCode.LeftShift)) // controls for switch statement
+        {
+            sprintMode = 2; // if shift we sprint
+        }
+        else
+        {
+            sprintMode = 1; // else we walk
+        }
+        
         
     }
 
     // Fixed update for movement
     void FixedUpdate() 
     {
-        transform.position += (transform.forward * speed * walkZ) + (transform.right * speed * walkX);
+        float acceleration = MaxInitialAcceleration * walkZ;
+        float currentVelocity = myRigidbody.velocity.z;
+        acceleration *= Mathf.Clamp(1.0f - (currentVelocity / maxSpeed), 0.0f, 1.0f);
+        currentVelocity += acceleration;
+        
+        switch (sprintMode)
+        {
+            // if shift is not held we walk
+            case 1:
+                transform.position += (transform.forward * walkZ * speed) + (transform.right * speed * walkX);
+                
+                Debug.Log("Walking it off");
+                break;
+            
+            // In a case 2, which is when shift is pressed. we use acceleration curve
+            case 2:
+                transform.position += (transform.forward * acceleration * sprintMulitlpier) + (transform.right * speed * walkX);
+                Debug.Log("I am running");
+                break;
+        }
+        
+        
         
         if(canVarJump == true)
         {

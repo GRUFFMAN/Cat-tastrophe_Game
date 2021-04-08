@@ -48,7 +48,7 @@ public class ExplodeOnCrash : BreakbleMaster
 
     void CheckExplode()
     {
-        if(gameObject.layer == 0)
+        if(gameObject.layer == 9)
         {
             if(acceleration > breakPoint)
             {
