@@ -175,103 +175,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 530623326062703010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e8df2bba14de6c4fa0dfc03f56b98cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 481640ceef75ae146802c3e37c18fd58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsWalking: 0
-  m_WalkSpeed: 5
-  m_RunSpeed: 10
-  m_RunstepLenghten: 0.7
-  m_JumpSpeed: 10
-  m_StickToGroundForce: 10
-  m_GravityMultiplier: 2
-  m_MouseLook:
-    XSensitivity: 2
-    YSensitivity: 2
-    clampVerticalRotation: 1
-    MinimumX: -90
-    MaximumX: 90
-    smooth: 0
-    smoothTime: 5
-    lockCursor: 1
-  m_UseFovKick: 1
-  m_FovKick:
-    Camera: {fileID: 0}
-    originalFov: 0
-    FOVIncrease: 3
-    TimeToIncrease: 1
-    TimeToDecrease: 1
-    IncreaseCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  m_UseHeadBob: 1
-  m_HeadBob:
-    HorizontalBobRange: 0.1
-    VerticalBobRange: 0.1
-    Bobcurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.5
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1.5
-        value: -1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 2
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    VerticaltoHorizontalRatio: 1
-  m_JumpBob:
-    BobDuration: 0.2
-    BobAmount: 0.1
-  m_StepInterval: 5
-  m_FootstepSounds:
-  - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
-  - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
-  m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
-  m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  gravity: -1
+  speed: 1
+  jumpForce: 200
+  varJumpForce: 5
+  rayCastDistBelow: 0.59
+  maxSpeed: 1
+  MaxInitialAcceleration: 0.1
+  sprintMulitlpier: 1.5
+  my_LandSound: {fileID: 0}
+  my_JumpSound: {fileID: 0}
+  my_FootStep: {fileID: 0}
+  my_AudioSource: {fileID: 0}
+  meow1: {fileID: 0}
+  meow2: {fileID: 0}
+  meow3: {fileID: 0}
+  meow4: {fileID: 0}
+  loadedMeowSound: {fileID: 0}
 --- !u!1 &3235963616153726504
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,10 +251,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3b4361d0798bbf341894697aac36f770, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -352,6 +276,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &224365412048324302
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -377,7 +302,7 @@ GameObject:
   - component: {fileID: 6716278831858117354}
   - component: {fileID: 5804098873163759153}
   - component: {fileID: 958061842366346450}
-  - component: {fileID: 6471093979901466254}
+  - component: {fileID: 8235225450384662823}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -459,7 +384,7 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7101687247561000019}
   m_Enabled: 1
---- !u!114 &6471093979901466254
+--- !u!114 &8235225450384662823
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -468,11 +393,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7101687247561000019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbb6ae343540edd4bb202425b37ba4d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 85fbf8364e690a144941a6699fa4c97d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitForce: 500
-  maxDistance: 1
+  mouseSensitivity: 100
+  playerBody: {fileID: 7299279969129887030}
 --- !u!1 &8742891725017145427
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,10 +454,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 33ce6629e4d3d01469fdb81bb444bbf9, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -553,6 +479,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &407589089998543472
 BoxCollider:
   m_ObjectHideFlags: 0
