@@ -13,8 +13,8 @@ public class breakScript : MonoBehaviour
         Debug.Log(parent.name);
         if(parent.name == "Dishes" && vel > 0.6f)
         {
-            GameObject ass = Instantiate(Resources.Load("GlassBroke"), Quaternion.identity as GameObject);
-            body.Destroy(body);
+            //GameObject ass = Instantiate(Resources.Load("GlassBroke"), Quaternion.identity as GameObject);
+            //body.Destroy(body);
         }
     }
 }
