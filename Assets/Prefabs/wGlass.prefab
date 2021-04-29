@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5753971234481354889
+--- !u!1 &7831659365242799657
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4940984212814815795}
-  - component: {fileID: 8304142261745937814}
-  - component: {fileID: 6114421726412282204}
-  - component: {fileID: 4835563679729375972}
-  - component: {fileID: 4835563679729375973}
+  - component: {fileID: 8700119133800994275}
+  - component: {fileID: 4407269285743584202}
+  - component: {fileID: 461963109009124211}
+  - component: {fileID: 6198752907054061039}
+  - component: {fileID: 6012607388215582898}
   m_Layer: 0
   m_Name: wGlass
   m_TagString: Untagged
@@ -20,40 +20,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4940984212814815795
+--- !u!4 &8700119133800994275
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5753971234481354889}
-  m_LocalRotation: {x: -0, y: 0.7410999, z: -0, w: 0.6713948}
-  m_LocalPosition: {x: -0.3757, y: 0.9582, z: -0.982}
-  m_LocalScale: {x: 9.3513, y: 9.351299, z: 9.3513}
+  m_GameObject: {fileID: 7831659365242799657}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7730733, y: 1.1046921, z: -3.1251009}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 95.65, z: 0}
---- !u!33 &8304142261745937814
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4407269285743584202
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5753971234481354889}
-  m_Mesh: {fileID: -6358728152654116957, guid: 9c6fb5641738745449fb14be10aa98ef, type: 3}
---- !u!23 &6114421726412282204
+  m_GameObject: {fileID: 7831659365242799657}
+  m_Mesh: {fileID: -7843526606762953986, guid: 00071116c6f7c3c488a9196b4793d429, type: 3}
+--- !u!23 &461963109009124211
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5753971234481354889}
+  m_GameObject: {fileID: 7831659365242799657}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -62,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f035bf53cd133cb4992f8e60498b6b70, type: 2}
+  - {fileID: 5561349426305759274, guid: 00071116c6f7c3c488a9196b4793d429, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,15 +83,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &4835563679729375972
+--- !u!54 &6198752907054061039
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5753971234481354889}
+  m_GameObject: {fileID: 7831659365242799657}
   serializedVersion: 2
-  m_Mass: 0.5
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -100,17 +99,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &4835563679729375973
+--- !u!64 &6012607388215582898
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5753971234481354889}
+  m_GameObject: {fileID: 7831659365242799657}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -6358728152654116957, guid: 9c6fb5641738745449fb14be10aa98ef, type: 3}
+  m_Mesh: {fileID: -7843526606762953986, guid: 00071116c6f7c3c488a9196b4793d429, type: 3}
