@@ -9,12 +9,38 @@ public class breakScript : MonoBehaviour
         GameObject body = col.gameObject;
         Rigidbody rb = body.GetComponent<Rigidbody>();
         GameObject parent = body.transform.parent.gameObject;
-        float vel = rb.velocity.magnitude;
-        Debug.Log(parent.name);
-        if(parent.name == "Dishes" && vel > 0.6f)
+        float vel = Mathf.Round(rb.velocity.magnitude * 10f) / 10f;;
+        Debug.Log(vel);
+        if(vel > 1)
         {
-            //GameObject ass = Instantiate(Resources.Load("GlassBroke"), Quaternion.identity as GameObject);
-            //body.Destroy(body);
+            Debug.Log("YUH");
+        }
+
+        if(parent.name == "Dishes" && vel >= 0.5)
+        {
+            string type = body.name + "Broke";
+            Debug.Log(type);
+            GameObject broken = Instantiate(Resources.Load(type), col.transform.position, Quaternion.identity) as GameObject;
+            broken.transform.parent = GameObject.Find("Dishes").transform;
+
+            switch(broken.transform.childCount)
+            {
+                case 2:
+                    GameObject child = broken.transform.GetChild(0).gameObject;
+                    GameObject child2 = broken.transform.GetChild(1).gameObject;
+                    child.transform.position = body.transform.position;
+                    child2.transform.position = body.transform.position;
+                    break;
+                case 3:
+                    GameObject child3 = broken.transform.GetChild(2).gameObject;
+                    child3.transform.position = body.transform.position;
+                    break;
+                case 4:
+                    GameObject child4 = broken.transform.GetChild(3).gameObject;
+                    child4.transform.position = body.transform.position;
+                    break;
+            }
+            Destroy(body);
         }
     }
 }
