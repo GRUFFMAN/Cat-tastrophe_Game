@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExplodeOnCrash : BreakbleMaster
 {
-    public Rigidbody deadModel;
+    public GameObject deadModel;
     public float breakPoint;
     Vector3 v;
     public float acceleration;
@@ -14,6 +14,7 @@ public class ExplodeOnCrash : BreakbleMaster
     public Rigidbody rb;
     public AudioClip m_LandSound; 
     public AudioSource m_AudioSource;
+    
     void Start()
     {
         last = transform.position;
@@ -38,7 +39,7 @@ public class ExplodeOnCrash : BreakbleMaster
 
     void Explode()
     {
-        Rigidbody newBullet = Instantiate(deadModel, v, deadModel.rotation) as Rigidbody; //spawn the dead
+        Instantiate(deadModel, v, Quaternion.identity); //spawn the dead
     }
 
     void DamageTracker()

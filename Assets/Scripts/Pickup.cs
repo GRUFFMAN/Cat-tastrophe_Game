@@ -4,6 +4,83 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+    public CharacterJoint springJoint;
+	private GameObject heldItem;
+	private Rigidbody heldRB;
+	public float maxDistance = 1f;
+
+	public float maxHeldItemDist = 2.0f;
+    bool itemGrabbed = false; //has an item been grabbed or not.
+	Vector3 jointPos;
+
+	void Start()
+	{
+
+	}
+
+	void Update()
+	{
+		if (Input.GetButtonDown("Fire1"))
+        {
+        	if (itemGrabbed == false)
+        	{
+	            RaycastHit hit;
+	            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+	            if (Physics.Raycast(ray, out hit, maxDistance))
+	            {
+	                if (hit.transform != null)
+	                {
+	                	heldItem = hit.transform.gameObject;
+						heldRB = hit.rigidbody;
+	                	if (heldItem.layer == 9)
+	                	{
+	                		itemGrabbed = true;
+							springJoint.connectedBody = heldRB;
+							Debug.Log("Pick up an Item");
+							heldItem.layer = 12;
+
+	                    }
+	                }
+	            }
+	        }
+		
+			else
+			{
+				if(itemGrabbed == true)
+				{
+					springJoint.connectedBody = null;
+					itemGrabbed = false;
+					heldItem.layer = 9;
+				}
+			
+			}
+		}
+		
+		if(itemGrabbed == true && springJoint.connectedBody != null)
+		{
+			Vector3 dist1 = heldItem.transform.position;
+			Vector3 dist2 = springJoint.transform.position;
+			if(Mathf.Abs(dist1.magnitude - dist2.magnitude) >= maxHeldItemDist )
+			{
+				springJoint.connectedBody = null;
+				itemGrabbed = false;
+				heldItem.layer = 9;
+			}
+		}	
+	}
+	
+
+
+
+
+
+
+
+}
+/*
+public class Pickup : MonoBehaviour
+{
     // Apply a force to a clicked rigidbody object.
 	private GameObject heldItem;
 	Rigidbody heldRigidbody; 
@@ -64,13 +141,13 @@ public class Pickup : MonoBehaviour
         		else
         		{
 
-        				/*
+        				
 						if (Input.GetKeyDown("left ctrl"))
         				{
         					heldRigidbody.rotation = Quaternion.Euler(0f, 0f, 0f);
         					heldRigidbody.angularVelocity = Vector3.zero;
         				}
-						*/
+						
 
         				heldRigidbody.MovePosition(ray.GetPoint(1f));
         			//heldItem.transform.SetPositionAndRotation(ray.GetPoint(2f), heldItem.transform.rotation);
@@ -88,3 +165,4 @@ public class Pickup : MonoBehaviour
         }
    	}
 }
+*/

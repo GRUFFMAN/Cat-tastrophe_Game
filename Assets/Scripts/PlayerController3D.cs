@@ -44,6 +44,7 @@ public class PlayerController3D : MonoBehaviour
     bool isGrounded;
     bool canVarJump = false;
     int sprintMode;
+    Vector3 velocity;
 
     ///////////////////////////////////// Standard Functions //////////////////////////////////////////
 
@@ -67,6 +68,8 @@ public class PlayerController3D : MonoBehaviour
         {
             PlayMeowSounds();
         }
+
+        
     }
 
     // Fixed update for movement
@@ -77,13 +80,21 @@ public class PlayerController3D : MonoBehaviour
         acceleration *= Mathf.Clamp(1.0f - (currentVelocity / maxSpeed), 0.0f, 1.0f);
         currentVelocity += acceleration;
         
-        if(Input.GetKey(KeyCode.LeftShift)) // controls for sprint
+        if(Input.GetKey(KeyCode.LeftShift)) // controls for sprint // currently a little broken for frame rate???
         {
-            transform.position += (transform.forward * acceleration * sprintMulitlpier) + (transform.right * speed * walkX);
+            //transform.position += (transform.forward * acceleration * sprintMulitlpier) + (transform.right * speed * walkX);
+            Vector3 velocity = (transform.forward * acceleration * sprintMulitlpier) + ((transform.right * walkX) * speed);
+            velocity.y = myRigidbody.velocity.y;
+            myRigidbody.velocity = velocity;
+            
         }
         else
         {
-            transform.position += (transform.forward * walkZ * speed) + (transform.right * speed * walkX);
+            //transform.position += (transform.forward * walkZ * speed) + (transform.right * speed * walkX);
+            Vector3 velocity = ((transform.forward * walkZ) * speed) + ((transform.right * walkX) * speed);
+            velocity.y = myRigidbody.velocity.y;
+            myRigidbody.velocity = velocity;
+
         }
         
         if(canVarJump == true)
@@ -143,12 +154,22 @@ public class PlayerController3D : MonoBehaviour
         PlayLandSound();
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        isGrounded = true;
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        isGrounded = false;
+    }
+
     ///////////////////////////////////// Jump Functions //////////////////////////////////////////
 
     // Handles jump, calls the grounded to check if we on ground
     void Jump()
     {
-        Grounded();
+        //Grounded();
         if(isGrounded == true)
         {
             myRigidbody.velocity = Vector3.zero;
@@ -160,7 +181,6 @@ public class PlayerController3D : MonoBehaviour
     }
     void JumpVar()
     {
-        //Grounded();
         if(canVarJump == true)
         {
             myRigidbody.AddForce(Vector3.up * (varJumpForce));
@@ -169,8 +189,16 @@ public class PlayerController3D : MonoBehaviour
     
     
     ///////////////////////////////////// Grounded Function //////////////////////////////////////////
+    
+    // does nothing atm, using colliders to figure out if touching the ground.
+    void Grounded()
+    {
 
-    // Called by jump to see if we are touching the ground
+    }  
+}
+
+/*  // old grounded function using raycasts
+// Called by jump to see if we are touching the ground
     void Grounded()
     {
         
@@ -243,18 +271,7 @@ public class PlayerController3D : MonoBehaviour
             isGrounded = false;
         }
     }
-    
-}
-
-// old useless code for ref
-/*
-        if(Mathf.Abs(myRigidbody.velocity.y) <= 0f) // "at rest" being a little liberal, if we waited for zero you would basically need to be stationary too, trying to get soemthing that is comfortable as a controller.
-        {
-            isGrounded = true;
-            return;
-            // return if at rest, don't bother with the raycasts
-        }
-    */
+*/
 
 
 

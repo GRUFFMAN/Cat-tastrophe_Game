@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152873021853972523}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0020000339, z: 0.068}
+  m_LocalPosition: {x: 0, y: 0.0020000339, z: 0.06800002}
   m_LocalScale: {x: 0.39157996, y: 0.28139722, z: 0.39158}
   m_Children: []
   m_Father: {fileID: 1152873022549277413}
@@ -309,6 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fcb0048f1eb8d44f814d31df0d95d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugTool: {fileID: 0}
   grabSpeed: 100
   maxDistance: 1
 --- !u!1 &1152873022884409454
@@ -389,7 +390,6 @@ MonoBehaviour:
   meow3: {fileID: 0}
   meow4: {fileID: 0}
   loadedMeowSound: {fileID: 0}
-  my_AudioMeow: {fileID: 0}
 --- !u!54 &1152873022884413330
 Rigidbody:
   m_ObjectHideFlags: 0
