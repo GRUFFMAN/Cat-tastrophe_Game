@@ -16,11 +16,11 @@ public class breakScript : MonoBehaviour
             Debug.Log("YUH");
         }
 
-        if(parent.name == "Dishes" && vel >= 0.5)
+        if(parent.name == "Dishes" && vel >= 0.5 && parent.layer == 9) // tired to add this layer exception so a dish couldn't break while you were carrying it. doesn't seem to have an effect
         {
             string type = body.name + "Broke";
             Debug.Log(type);
-            GameObject broken = Instantiate(Resources.Load(type), col.transform.position, Quaternion.identity) as GameObject;
+            GameObject broken = Instantiate(Resources.Load(type), col.transform.position, rb.rotation) as GameObject;
             broken.transform.parent = GameObject.Find("Dishes").transform;
 
             switch(broken.transform.childCount)
