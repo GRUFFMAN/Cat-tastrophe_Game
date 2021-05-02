@@ -9,13 +9,15 @@ public class EnemySight : MonoBehaviour
     {
         PATROL,
         CHASE,
-        INVESTIGATE
+        INVESTIGATE // curently unused, will incorportate into more complex behaviour later
     }
 
     public NavMeshAgent agent;
     public GameObject enemyBody;
     public GameObject target;
     public EnemyState enemyState;
+
+    public GameObject[] waypoints;
 
     public float patrolSpeed = 1.5f;
     public float chaseSpeed = 3f;
@@ -34,11 +36,16 @@ public class EnemySight : MonoBehaviour
     Vector3 startingPos;
     
     public bool foundKitty = false;
+    int waypointIndex;
+    public float waypointProximity = 2.0f;
     
     void Start()
     {
         startingPos = transform.position;
         enemyState = EnemyState.PATROL;
+
+        waypoints = GameObject.FindGameObjectsWithTag("Waypoints");
+        waypointIndex = Random.Range(0, waypoints.Length);
     }
 
     void Update()
@@ -75,7 +82,7 @@ public class EnemySight : MonoBehaviour
             for(int i = 0; i < lookAngles.Length; i++)
             {
                 Debug.DrawRay(transform.position, (transform.forward + (transform.up * upAngles[z]) + (transform.right * lookAngles[i])).normalized * (lookDistance - (2*Mathf.Abs(lookAngles[i])) + (4*upAngles[z])), Color.red);
-                // we do some fun maths I just thought of to contrict his vison to confine with something more human. It was a fun exercise thinking about how I could use the array to restrict the rays made from the array, I think it works quite well.
+                // we do some fun maths I just thought of to constrict his vison to confine it with something more human. It was a fun exercise thinking about how I could use the array to restrict the rays made from the array, I think it works quite well.
                 //Debug.Log("I shot ray " + i);
                 if(Physics.Raycast(transform.position, (transform.forward + (transform.up * upAngles[z]) + (transform.right * lookAngles[i])).normalized, out hit, (lookDistance - (2*Mathf.Abs(lookAngles[i])) + (4*upAngles[z]))))
                 {
@@ -96,12 +103,6 @@ public class EnemySight : MonoBehaviour
         }
         
     }
-
-    void Investigate()
-    {
-
-    }
-
     void Chase()
     {
         agent.speed = chaseSpeed;
@@ -118,17 +119,18 @@ public class EnemySight : MonoBehaviour
     void Patrol()
     {
         agent.speed = patrolSpeed;
-        agent.SetDestination(startingPos);
-        enemyBody.transform.rotation = Quaternion.Euler(0f, maxRotation * Mathf.Sin(Time.time * rotationSpeed) , 0f);
+        //agent.SetDestination(startingPos);
+        //enemyBody.transform.rotation = Quaternion.Euler(0f, maxRotation * Mathf.Sin(Time.time * rotationSpeed) , 0f);
+
+        if(Vector3.Distance(transform.position, waypoints[waypointIndex].transform.position) >= waypointProximity)
+        {
+            agent.SetDestination(waypoints[waypointIndex].transform.position);
+        }
+        else if(Vector3.Distance(transform.position, waypoints[waypointIndex].transform.position) <= waypointProximity)
+        {
+            waypointIndex = Random.Range(0, waypoints.Length);
+        }
 
     }
-
-
-    void OnTriggerEnter()
-    {
-        
-    }
-
-
     
 }
