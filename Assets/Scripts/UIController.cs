@@ -10,10 +10,7 @@ public class MainMenu : MonoBehaviour
     public GameObject MainMenuUI;
     public GameObject InstructionsUI;
     public GameObject ScoreUI;
-    [Header("UI Elements")]
-        [SerializeField] public Text scoreText;     // accessing the UI  
-        [SerializeField] private GameData gameData = new GameData();
-    public string saveFileName = "data.json";  
+
 
     public void PlayGame()
     {
@@ -44,20 +41,6 @@ public class MainMenu : MonoBehaviour
         MainMenuUI.SetActive(true);
         ScoreUI.SetActive(false);
     }
-    public void LoadGameData()
-    {
-        string filePath = Path.Combine(Application.streamingAssetsPath, saveFileName);
-        if(File.Exists(filePath))
-        {
-            string dataAsJson = File.ReadAllText(filePath);
-            GameData loadedData = JsonUtility.FromJson<GameData>(dataAsJson);
 
-            scoreText.text = dataAsJson; // adding the score to the UI
-        }
-        else
-        {
-            Debug.Log("There is no Data to be Loaded");
-        }
-    }
 }
 

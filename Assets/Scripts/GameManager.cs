@@ -9,16 +9,11 @@ public class GameManager : MonoBehaviour
     [Header("UI Objects")]
         [SerializeField] public GameObject pauseUI;        // UI object that contains the UI called during Pause
         [SerializeField] public GameObject gameOverUI;     // UI object that contains the UI called during GameOver
-        [SerializeField] public GameObject bossUI;
-        [SerializeField] public GameObject winUI;
-        [SerializeField] private GameData gameData = new GameData();
+        public GameObject InstructionsUI;
+        public GameObject winUI;   
     
     [Header("Game Objects")]
         [SerializeField] public GameObject playerGroup;    // Player object that is tracked for when the player dies
-        [SerializeField] public GameObject bossEnemy;
-        public GameObject gameControl;
-
-        public string saveFileName = "data.json";
     
     
     [Header("Variables")]
@@ -30,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        GameplayController gameControl = GetComponent<GameplayController>();
+
     }
     void Update()
     {
@@ -70,15 +65,6 @@ public class GameManager : MonoBehaviour
             {
                 WinGame();
             }
-        }
-        if(bossEnemy == null)
-        {
-            gameWin = true;
-            return;
-        }
-        if(bossEnemy.activeSelf == true)   // if the player has died (player model gets hidden)
-        {
-            bossUI.SetActive(true);
         }
     }
     public void EndGame() // if the game is over, make the gameover UI unhidden, Freeze time
@@ -126,25 +112,16 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         Cursor.visible = true;
     }
-
-    public void SaveScore()
+    public void OpenInstructions()
     {
-        
-        gameData.score = gameControl.GetComponent<GameplayController>().gameScore;
-        gameData.health = gameControl.GetComponent<GameplayController>().gameHealth;
-        GameData _gameData = gameData;
-        Debug.Log("Saving");
-        string dataAsJson = JsonUtility.ToJson(_gameData);
-        Debug.Log(dataAsJson);
-        string filePath = Application.streamingAssetsPath + "/" + saveFileName;
-        File.WriteAllText(filePath, dataAsJson);
-
+        pauseUI.SetActive(false);
+        InstructionsUI.SetActive(true);
     }
+    public void closeInstructions()
+    {
+        pauseUI.SetActive(true);
+        InstructionsUI.SetActive(false);
+    }
+
 }
 
-[System.Serializable]
-public class GameData
-{
-    public int score;
-    public int health;
-}
