@@ -49,14 +49,7 @@ public class GameManager : MonoBehaviour
         
         if(isGameOver == false)                   // if the game hasn't ended
         {
-            if(playerGroup.activeSelf == false)   // if the player has died (player model gets hidden)
-            {
-                timer -= (1*Time.deltaTime);      // start counting down the timer
-                if(timer <= 0)
-                {   
-                    isGameOver = true;            // if the timer reaches 0, tell the bool that the game is over
-                }
-            }
+
             if(isGameOver == true)                // if game over is now true, end the game and spawn the game over menu.
             {
                 EndGame();

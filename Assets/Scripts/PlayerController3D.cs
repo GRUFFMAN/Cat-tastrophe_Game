@@ -83,7 +83,7 @@ public class PlayerController3D : MonoBehaviour
         if(Input.GetKey(KeyCode.LeftShift)) // controls for sprint // currently a little broken for frame rate???
         {
             //transform.position += (transform.forward * acceleration * sprintMulitlpier) + (transform.right * speed * walkX);
-            Vector3 velocity = (transform.forward * acceleration * sprintMulitlpier) + ((transform.right * walkX) * speed);
+            Vector3 velocity = ((transform.forward * acceleration * sprintMulitlpier) + ((transform.right * walkX) * speed)).normalized;
             velocity.y = myRigidbody.velocity.y;
             myRigidbody.velocity = velocity;
             
@@ -91,7 +91,7 @@ public class PlayerController3D : MonoBehaviour
         else
         {
             //transform.position += (transform.forward * walkZ * speed) + (transform.right * speed * walkX);
-            Vector3 velocity = ((transform.forward * walkZ) * speed) + ((transform.right * walkX) * speed);
+            Vector3 velocity = (((transform.forward * walkZ) * speed) + ((transform.right * walkX) * speed));
             velocity.y = myRigidbody.velocity.y;
             myRigidbody.velocity = velocity;
 

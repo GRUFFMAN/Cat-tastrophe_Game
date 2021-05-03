@@ -27843,7 +27843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3944892816901508655, guid: 3cf027c94659b6249b6bfa08b79f9c6e, type: 3}
       propertyPath: jumpForce
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3944892816901508655, guid: 3cf027c94659b6249b6bfa08b79f9c6e, type: 3}
       propertyPath: my_FootStep
@@ -27859,11 +27859,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 28b9b2bfb53ecc14dbf237e870463411, type: 3}
     - target: {fileID: 3944892816901508655, guid: 3cf027c94659b6249b6bfa08b79f9c6e, type: 3}
       propertyPath: varJumpForce
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3944892816901508655, guid: 3cf027c94659b6249b6bfa08b79f9c6e, type: 3}
       propertyPath: sprintMulitlpier
-      value: 1.09
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 3944892816901508655, guid: 3cf027c94659b6249b6bfa08b79f9c6e, type: 3}
       propertyPath: MaxInitialAcceleration
