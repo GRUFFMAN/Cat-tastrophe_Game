@@ -21,7 +21,10 @@ public class GameManager : MonoBehaviour
         [SerializeField] public bool isGameOver = false;   // bool for tracking if the Game is over
         [SerializeField] public float timer = 1.2f;        // timer used to count down before the gameover menu spawns
 
+        public GameObject gerald;
+
     bool gameWin = false;
+    public bool isCatCaught = false;
 
     void Start()
     {
@@ -49,10 +52,15 @@ public class GameManager : MonoBehaviour
         
         if(isGameOver == false)                   // if the game hasn't ended
         {
-
-            if(isGameOver == true)                // if game over is now true, end the game and spawn the game over menu.
+            isCatCaught = gerald.GetComponent<CatCatching>().isCaught;
+            //myobject.GetComponent<myscript>().mybool = true;
+            
+            
+            if(isCatCaught == true)                // if game over is now true, end the game and spawn the game over menu.
             {
                 EndGame();
+                isGameOver = true;
+
             }
             if(gameWin == true)
             {
