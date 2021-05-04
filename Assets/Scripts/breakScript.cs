@@ -10,12 +10,14 @@ public class breakScript : MonoBehaviour
         Rigidbody rb = body.GetComponent<Rigidbody>();
         GameObject parent = body.transform.parent.gameObject;
         float vel = Mathf.Round(rb.velocity.magnitude * 10f) / 10f;;
+        /* Debug code - checking rb velocity
         Debug.Log(vel);
         if(vel > 1)
         {
             Debug.Log("YUH");
-        }
+        }*/
 
+        // Checks for breakable object and its velocity
         if(parent.name == "Dishes" && vel >= 0.5 && parent.layer == 9) // tired to add this layer exception so a dish couldn't break while you were carrying it. doesn't seem to have an effect
         {
             string type = body.name + "Broke";
@@ -23,6 +25,7 @@ public class breakScript : MonoBehaviour
             GameObject broken = Instantiate(Resources.Load(type), col.transform.position, rb.rotation) as GameObject;
             broken.transform.parent = GameObject.Find("Dishes").transform;
 
+            //Switch based on number of child objects sets their position
             switch(broken.transform.childCount)
             {
                 case 2:

@@ -127,7 +127,7 @@ public class PlayerController3D : MonoBehaviour
     private void PlayMeowSounds()
     {
         int temp = Random.Range(1, 5);
-        Debug.Log(temp);
+        //Debug.Log(temp);
         switch (temp)
         {
             case 1:
