@@ -7,11 +7,19 @@ public class Pickup : MonoBehaviour
     public CharacterJoint springJoint;
 	private GameObject heldItem;
 	private Rigidbody heldRB;
+
+	Color colourDebug = Color.red;
 	public float maxDistance = 1f;
 
 	public float maxHeldItemDist = 2.0f;
     bool itemGrabbed = false; //has an item been grabbed or not.
 	Vector3 jointPos;
+
+
+	float[] lookAngles = {0f, 0.01f, -0.01f};
+    float[] upAngles = {0f, 0.01f, -0.01f};
+
+	float lookDistance = 1.0f;
 
 	void Start()
 	{
@@ -19,6 +27,68 @@ public class Pickup : MonoBehaviour
 	}
 
 	void Update()
+	{
+		if (Input.GetButtonDown("Fire1"))
+        {
+        	if (itemGrabbed == false)
+        	{
+	            RaycastHit hit;
+	            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				
+				for(int z = 0; z < upAngles.Length; z++)
+				{
+					for(int i = 0; i < lookAngles.Length; i++)
+					{
+						//Debug.DrawRay(transform.position, (transform.forward + (transform.up * upAngles[z]) + (transform.right * lookAngles[i])).normalized * lookDistance, colourDebug);
+
+						if(Physics.Raycast(transform.position, (transform.forward + (transform.up * upAngles[z]) + (transform.right * lookAngles[i])).normalized, out hit, lookDistance))
+						{
+							if (hit.transform != null)
+							{
+								heldItem = hit.transform.gameObject;
+								heldRB = hit.rigidbody;
+								if (heldItem.layer == 9)
+								{
+									itemGrabbed = true;
+									springJoint.connectedBody = heldRB;
+									Debug.Log("Pick up an Item");
+									heldItem.layer = 12;
+								}
+							}
+						}
+					}
+				}
+			}
+			else
+			{
+				if(itemGrabbed == true)
+				{
+					springJoint.connectedBody = null;
+					itemGrabbed = false;
+					heldItem.layer = 9;
+				}
+			
+			}
+		}
+				
+		
+		/*
+		if(itemGrabbed == true && springJoint.connectedBody != null)
+		{
+			Vector3 dist1 = heldItem.transform.position;
+			Vector3 dist2 = springJoint.transform.position;
+			if(Mathf.Abs(dist1.magnitude - dist2.magnitude) >= maxHeldItemDist )
+			{
+				springJoint.connectedBody = null;
+				itemGrabbed = false;
+				heldItem.layer = 9;
+			}
+		}	
+		*/
+	}
+}
+/*
+void Update()
 	{
 		if (Input.GetButtonDown("Fire1"))
         {
@@ -69,7 +139,6 @@ public class Pickup : MonoBehaviour
 			}
 		}	
 	}
-	
 
 
 
@@ -77,8 +146,6 @@ public class Pickup : MonoBehaviour
 
 
 
-}
-/*
 public class Pickup : MonoBehaviour
 {
     // Apply a force to a clicked rigidbody object.
