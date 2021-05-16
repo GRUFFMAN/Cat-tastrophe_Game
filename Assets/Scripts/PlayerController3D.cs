@@ -43,8 +43,13 @@ public class PlayerController3D : MonoBehaviour
     // Bool for tracking if we are on the ground
     bool isGrounded;
     bool canVarJump = false;
+
+    public bool meowing = false;
     int sprintMode;
     Vector3 velocity;
+
+    float lastMeowTimer = 1f;
+    float timer = 0;
 
     ///////////////////////////////////// Standard Functions //////////////////////////////////////////
 
@@ -67,6 +72,16 @@ public class PlayerController3D : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E))
         {
             PlayMeowSounds();
+        }
+
+        if(meowing == true)
+        {
+            timer += Time.deltaTime;
+            if(timer >= lastMeowTimer)
+            {
+                meowing = false;
+                timer = 0;
+            }
         }
 
         
@@ -124,8 +139,9 @@ public class PlayerController3D : MonoBehaviour
         my_AudioSource.Play();
     }
     
-    private void PlayMeowSounds()
+    public void PlayMeowSounds()
     {
+        meowing = true;
         int temp = Random.Range(1, 5);
         //Debug.Log(temp);
         switch (temp)
@@ -145,6 +161,7 @@ public class PlayerController3D : MonoBehaviour
         }   
         my_AudioSource.clip = loadedMeowSound;
         my_AudioSource.Play();
+        
     }
     
     ///////////////////////////////////// Trigger Function ////////////////////////////////////////

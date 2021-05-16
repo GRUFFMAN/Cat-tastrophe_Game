@@ -9,7 +9,7 @@ public class EnemySight : MonoBehaviour
     {
         PATROL,
         CHASE,
-        INVESTIGATE // curently unused, will incorportate into more complex behaviour later
+        INVESTIGATE 
     }
 
     public NavMeshAgent agent;
@@ -32,12 +32,16 @@ public class EnemySight : MonoBehaviour
     public float timer = 0;
     public float lastSeenTimer = 10f;
 
+    public bool meowHeard = false;
+
     Vector3 targetLocation;
     Vector3 startingPos;
     
     public bool foundKitty = false;
     int waypointIndex;
     public float waypointProximity = 2.0f;
+
+    Vector3 investigateLocatation;
     
     void Start()
     {
@@ -57,6 +61,10 @@ public class EnemySight : MonoBehaviour
         if(enemyState == EnemyState.PATROL)
         {
             Patrol();
+        }
+        if(enemyState == EnemyState.INVESTIGATE)
+        {
+            Investigate();
         }
         //transform.rotation = Quaternion.Euler(maxRotation * Mathf.Sin(Time.time * rotationSpeed), 0f , 0f);
 
@@ -131,6 +139,41 @@ public class EnemySight : MonoBehaviour
             waypointIndex = Random.Range(0, waypoints.Length);
         }
 
+    }
+
+    void Investigate()
+    {
+        agent.speed = patrolSpeed;
+        agent.SetDestination(investigateLocatation);
+
+        if(Vector3.Distance(transform.position, investigateLocatation) >= waypointProximity)
+        {
+            if(timer >= lastSeenTimer)
+            {
+                enemyState = EnemyState.PATROL;
+                lookDistance = 6f;
+                Debug.Log("MUST HAVE BEEN THE WIND");
+                timer = 0;
+            }
+        }
+
+    }
+
+    void OnTriggerStay(Collider col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            meowHeard = col.gameObject.GetComponent<PlayerController3D>().meowing;
+            if(meowHeard == true)
+            {
+                investigateLocatation = col.gameObject.transform.position;
+                enemyState = EnemyState.INVESTIGATE;
+
+                Debug.Log("WHERE IS THAT MEOW COMING FROM");
+
+                col.gameObject.GetComponent<PlayerController3D>().meowing = false;
+            }
+        }
     }
     
 }
