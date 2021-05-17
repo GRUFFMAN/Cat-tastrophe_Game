@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
         [SerializeField] public GameObject pauseUI;        // UI object that contains the UI called during Pause
         [SerializeField] public GameObject gameOverUI;     // UI object that contains the UI called during GameOver
         public GameObject InstructionsUI;
+        public GameObject controlsUI;
         public GameObject winUI;   
     
     [Header("Game Objects")]
@@ -68,6 +69,7 @@ public class GameManager : MonoBehaviour
                 EndGame();
                 isGameOver = true;
                 Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
 
             }
             if(gameWin == true)
@@ -109,6 +111,13 @@ public class GameManager : MonoBehaviour
         } 
     }
 
+    ////////////////////////////////////////////// Controls /////////////////////////////////////////////////////////
+
+    public void SetMouseSensitivity(float sensMultiplier)
+    {
+        cat.GetComponent<mouse_look>().mouseSensitivity = sensMultiplier;
+    }
+
     ////////////////////////////////////////////// ///////// /////////////////////////////////////////////////////////
 
     public void EndGame() // if the game is over, make the gameover UI unhidden, Freeze time
@@ -125,6 +134,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;
         isGamePaused = true;
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        
     }
     public void Resume() // if resume, reset time to full and hide the pause menu, relock the cursor for gameplay
     {
@@ -144,7 +156,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         isGamePaused = false;
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.None;
     }
     public void QuitGame()
     {
@@ -166,6 +178,16 @@ public class GameManager : MonoBehaviour
     {
         pauseUI.SetActive(true);
         InstructionsUI.SetActive(false);
+    }
+    public void OpenControls()
+    {
+        pauseUI.SetActive(false);
+        controlsUI.SetActive(true);
+    }
+    public void CloseContols()
+    {
+        pauseUI.SetActive(true);
+        controlsUI.SetActive(false);
     }
 
 }
