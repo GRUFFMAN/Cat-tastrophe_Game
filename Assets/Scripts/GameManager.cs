@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
 
@@ -23,13 +24,19 @@ public class GameManager : MonoBehaviour
 
         public GameObject gerald;
 
+    private Camera cam;
+
+    public Image image;
+    public GameObject cat;
+
     bool gameWin = false;
     public bool isCatCaught = false;
 
     void Start()
     {
-
+        cam = Camera.main;
     }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)) //if key escape is press
@@ -60,6 +67,7 @@ public class GameManager : MonoBehaviour
             {
                 EndGame();
                 isGameOver = true;
+                Cursor.visible = true;
 
             }
             if(gameWin == true)
@@ -67,10 +75,46 @@ public class GameManager : MonoBehaviour
                 WinGame();
             }
         }
+
+        CrosshairCheck();
     }
+    ////////////////////////////////////////////// CROSSHAIR /////////////////////////////////////////////////////////
+    
+    public void CrosshairCheck()
+    {
+        RaycastHit hit;
+        GameObject hitObj;
+        float rayDist = 1.0f;
+
+        Vector3 point = cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0f));
+        Debug.DrawRay(point, cat.transform.forward * rayDist, Color.red);
+        // Cast a ray straight downwards.
+        if(Physics.Raycast(point, cat.transform.forward, out hit, rayDist))
+        {
+            hitObj = hit.transform.gameObject;
+            if(hitObj.layer == 9)
+            {
+                //Debug.Log("working");
+                image.GetComponent<Image>().color = Color.green; //new Color32(255,255,225,100);
+            }
+            if(hitObj.layer != 9)
+            {
+                //Debug.Log("working");
+                image.GetComponent<Image>().color = Color.yellow; //new Color32(255,255,225,100);
+            }  
+        }
+        else
+        {
+            image.GetComponent<Image>().color = new Color32(255,255,225,100);
+        } 
+    }
+
+    ////////////////////////////////////////////// ///////// /////////////////////////////////////////////////////////
+
     public void EndGame() // if the game is over, make the gameover UI unhidden, Freeze time
     {
         gameOverUI.SetActive(true);
+        pauseUI.SetActive(false);
         Time.timeScale = 0.0f;
         Cursor.visible = true;
     }

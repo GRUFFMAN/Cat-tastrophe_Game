@@ -30,45 +30,52 @@ public class Pickup : MonoBehaviour
 	{
 		if (Input.GetButtonDown("Fire1"))
         {
-        	if (itemGrabbed == false)
-        	{
-	            RaycastHit hit;
-	            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-				
-				for(int z = 0; z < upAngles.Length; z++)
+        	if(springJoint.connectedBody == null)
+			{
+				itemGrabbed = false;
+				heldItem = null;
+			}
+			
+			if(itemGrabbed == true)
+			{
+				springJoint.connectedBody = null;
+				itemGrabbed = false;
+				heldItem.layer = 9;
+			}
+		
+			else
+			{
+				if (itemGrabbed == false)
 				{
-					for(int i = 0; i < lookAngles.Length; i++)
+					RaycastHit hit;
+					Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+					
+					for(int z = 0; z < upAngles.Length; z++)
 					{
-						//Debug.DrawRay(transform.position, (transform.forward + (transform.up * upAngles[z]) + (transform.right * lookAngles[i])).normalized * lookDistance, colourDebug);
-
-						if(Physics.Raycast(transform.position, (transform.forward + (transform.up * upAngles[z]) + (transform.right * lookAngles[i])).normalized, out hit, lookDistance))
+						for(int i = 0; i < lookAngles.Length; i++)
 						{
-							if (hit.transform != null)
+							//Debug.DrawRay(transform.position, (transform.forward + (transform.up * upAngles[z]) + (transform.right * lookAngles[i])).normalized * lookDistance, colourDebug);
+
+							if(Physics.Raycast(transform.position, (transform.forward + (transform.up * upAngles[z]) + (transform.right * lookAngles[i])).normalized, out hit, lookDistance))
 							{
-								heldItem = hit.transform.gameObject;
-								heldRB = hit.rigidbody;
-								if (heldItem.layer == 9)
+								if (hit.transform != null)
 								{
-									itemGrabbed = true;
-									springJoint.connectedBody = heldRB;
-									Debug.Log("Pick up an Item");
-									heldItem.layer = 12;
+									heldItem = hit.transform.gameObject;
+									heldRB = hit.rigidbody;
+									if (heldItem.layer == 9)
+									{
+										itemGrabbed = true;
+										springJoint.connectedBody = heldRB;
+										Debug.Log("Pick up an Item");
+										heldItem.layer = 12;
+									}
 								}
 							}
 						}
 					}
 				}
 			}
-			else
-			{
-				if(itemGrabbed == true)
-				{
-					springJoint.connectedBody = null;
-					itemGrabbed = false;
-					heldItem.layer = 9;
-				}
 			
-			}
 		}
 				
 		

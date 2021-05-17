@@ -54,18 +54,30 @@ public class EnemySight : MonoBehaviour
 
     void Update()
     {
-        if(enemyState == EnemyState.CHASE)
+        switch (enemyState)
         {
-            Chase();
+            case EnemyState.CHASE:
+                
+                Chase();
+                break;
+           
+            case EnemyState.PATROL:
+                
+                Patrol();
+                break;
+            
+            case EnemyState.INVESTIGATE:
+                
+                Investigate();
+                break;
+            
+            default:
+                
+                Debug.Log("Gerlad's AI has broken if we are here");
+                break;
         }
-        if(enemyState == EnemyState.PATROL)
-        {
-            Patrol();
-        }
-        if(enemyState == EnemyState.INVESTIGATE)
-        {
-            Investigate();
-        }
+        
+        
         //transform.rotation = Quaternion.Euler(maxRotation * Mathf.Sin(Time.time * rotationSpeed), 0f , 0f);
 
         if(foundKitty == false && enemyState == EnemyState.CHASE)
