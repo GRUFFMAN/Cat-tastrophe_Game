@@ -34,14 +34,17 @@ public class breakScript : MonoBehaviour
                     child.transform.position = body.transform.position;
                     child.layer = 9;
                     child2.transform.position = body.transform.position;
+                    child2.layer = 9;
                     break;
                 case 3:
                     GameObject child3 = broken.transform.GetChild(2).gameObject;
                     child3.transform.position = body.transform.position;
+                    child3.layer = 9;
                     break;
                 case 4:
                     GameObject child4 = broken.transform.GetChild(3).gameObject;
                     child4.transform.position = body.transform.position;
+                    child4.layer = 9;
                     break;
             }
             Destroy(body);
