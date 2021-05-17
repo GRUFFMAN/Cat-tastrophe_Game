@@ -32,6 +32,7 @@ public class breakScript : MonoBehaviour
                     GameObject child = broken.transform.GetChild(0).gameObject;
                     GameObject child2 = broken.transform.GetChild(1).gameObject;
                     child.transform.position = body.transform.position;
+                    child.layer = 9;
                     child2.transform.position = body.transform.position;
                     break;
                 case 3:
