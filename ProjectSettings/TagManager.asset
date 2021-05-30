@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - Waypoints
   - Ventpoint
+  - Vent Waypoint
   layers:
   - Default
   - TransparentFX

@@ -46,11 +46,11 @@ public class GameManager : MonoBehaviour
             {
                 if(gameWin == false)
                 {
-                    if(isGamePaused == true)     // if the game is paused already
+                    if(isGamePaused == true && (controlsUI.activeSelf == false))     // if the game is paused already
                     {
                         Resume();                // play the game by pressing escape
                     }
-                    else
+                    if(isGamePaused == false && (controlsUI.activeSelf == false))
                     {
                         Pause();                 // pause the game if it isn't
                     }

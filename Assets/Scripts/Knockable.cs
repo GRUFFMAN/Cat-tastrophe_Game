@@ -9,7 +9,7 @@ public class Knockable : MonoBehaviour
     // Start is called before the first frame update
     public float hitForce = 1f;
     public float maxDistance = 1f;
-    public float lastStep = 0.3f;         //used for controlling the firerate of the guns
+    public float lastStep = 0.3f;         
     //float timeBetweenSteps = 0.3f;
     int forceDirection;
     Vector3 swipeDirection;
@@ -22,7 +22,7 @@ public class Knockable : MonoBehaviour
 
     void Start()
     {
-        ventWaypoints = GameObject.FindGameObjectsWithTag("Vent Waypoint");
+        /*ventWaypoints = GameObject.FindGameObjectsWithTag("Vent Waypoint");
         if (ventWaypoints  == null)
         {
             Debug.Log("ventWaypoints failed");
@@ -32,6 +32,7 @@ public class Knockable : MonoBehaviour
         {
             Debug.Log("Ventpoints failed");
         }
+        */
     }
 
     // Update is called once per frame
@@ -79,13 +80,16 @@ public class Knockable : MonoBehaviour
                                             // I seem to have been lucky with the guess because my code works with 4 vents so far and no issue getting the correct pair.
                                             // Each vent has a pair, which is placed next to it in the heirachy in a 0,1 / 2,3 / 4,5 /6,7... etc fashion.
                                             // this coupled with my assumption of unity allows us to check if we are at a stop in the array and then add or subtract the index to find our pair and thus teleport to the correct spot.
+                                            
+                                            // Except now upon building the game the array is not being set up nice. so either my previous runs were lucky, or Unity compiles the scene differently than with the editor.
+                                            // I will now just set up the arrays by hand.
             {
                 RaycastHit ventHit;
                 if(Physics.Raycast(transform.position, transform.forward, out ventHit, maxDistance)) // we start with a humble raycast and detect if we hit a vent
                 {
                     if(ventHit.transform.gameObject.tag == "Ventpoint")
                     {
-                        for(int i = 0; i < ventPoints.Length; i ++) // once we hjave we loop to see which array value this vent is at.
+                        for(int i = 0; i < ventPoints.Length; i ++) // once we have we loop to see which array value this vent is at.
                         {
                             if(ventPoints[i].transform.position == ventHit.transform.position)
                             {   
