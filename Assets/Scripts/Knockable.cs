@@ -20,7 +20,7 @@ public class Knockable : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+     void Update()
     {
         if(Time.timeScale != 0f)
         { 
@@ -28,10 +28,10 @@ public class Knockable : MonoBehaviour
             {
                 Debug.Log("mouse click");
                 RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 //forceDirection = Random.Range(1, 3);
 
-                if (Physics.Raycast(ray, out hit, maxDistance))
+                //if (Physics.Raycast(ray, out hit, maxDistance))
+                if(Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
                 {
                     if (hit.rigidbody != null)
                     {                     
@@ -44,10 +44,10 @@ public class Knockable : MonoBehaviour
             {
                 Debug.Log("mouse click");
                 RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 //forceDirection = Random.Range(1, 3);
 
-                if (Physics.Raycast(ray, out hit, maxDistance))
+                //if (Physics.Raycast(ray, out hit, maxDistance))
+                if(Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
                 {
                     if (hit.rigidbody != null)
                     {
@@ -69,14 +69,4 @@ public class Knockable : MonoBehaviour
                         swipeDirection = -transform.right;
                         break;
                 }
-
-                        
-                        
-            if(heldItem != null)
-        {
-            if(Time.time - lastStep > timeBetweenSteps) //controls the firerate of the guns so they aren't firing evey update
-            {
-                heldItem.layer = 9;
-            }
-        }
 */

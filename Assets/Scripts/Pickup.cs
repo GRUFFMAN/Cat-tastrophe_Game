@@ -48,7 +48,6 @@ public class Pickup : MonoBehaviour
 				if (itemGrabbed == false)
 				{
 					RaycastHit hit;
-					Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 					
 					for(int z = 0; z < upAngles.Length; z++)
 					{
