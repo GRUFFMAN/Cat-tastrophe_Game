@@ -237,8 +237,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.011159803, y: 0.025113342, z: 0.041175526}
-  m_Center: {x: -0.000008940325, y: -0.0013004635, z: 0.005013487}
+  m_Size: {x: 0.011159803, y: 0.0248019, z: 0.041175526}
+  m_Center: {x: -0.000008940325, y: -0.0011447422, z: 0.005013487}
 --- !u!65 &1420011294613823213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -250,8 +250,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.010204668, y: 0.0047204434, z: 0.03367715}
-  m_Center: {x: 0, y: -0.015105279, z: 0.0043216706}
+  m_Size: {x: 0.010204668, y: 0.004101953, z: 0.03367715}
+  m_Center: {x: 0, y: -0.015414529, z: 0.0043216706}
 --- !u!82 &1420011294613823202
 AudioSource:
   m_ObjectHideFlags: 0
@@ -483,9 +483,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f9fd92513e3a747a7d7cab98eef85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cat: {fileID: 0}
   hitForce: 148.04
   maxDistance: 0.5
   lastStep: 0.3
+  ventWaypoints: []
+  ventPoints: []
 --- !u!114 &2669499481285405888
 MonoBehaviour:
   m_ObjectHideFlags: 0

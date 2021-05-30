@@ -69,7 +69,7 @@ public class PlayerController3D : MonoBehaviour
         {
             Jump();
         }
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.M))
         {
             PlayMeowSounds();
         }
