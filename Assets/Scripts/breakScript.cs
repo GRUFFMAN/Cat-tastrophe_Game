@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class breakScript : MonoBehaviour
 {
+    public int score = 100;
     public void OnCollisionEnter(Collision col)
     {
         GameObject body = col.gameObject;
+        GameObject gameManager = GameObject.Find("gameManager");
+        
         Rigidbody rb = body.GetComponent<Rigidbody>();
         GameObject parent = body.transform.parent.gameObject;
         float vel = Mathf.Round(rb.velocity.magnitude * 10f) / 10f;;
+
         /* Debug code - checking rb velocity
         Debug.Log(vel);
         if(vel > 1)
@@ -18,10 +22,11 @@ public class breakScript : MonoBehaviour
         }*/
 
         // Checks for breakable object and its velocity
-        if(parent.name == "Dishes" && vel >= 0.5 && parent.layer == 9) // tired to add this layer exception so a dish couldn't break while you were carrying it. doesn't seem to have an effect
+        
+        if(parent.name == "Dishes" && vel >= 0.5 && body.layer == 9) 
         {
             string type = body.name + "Broke";
-            Debug.Log(type);
+            //Debug.Log(type);
             GameObject broken = Instantiate(Resources.Load(type), col.transform.position, rb.rotation) as GameObject;
             broken.transform.parent = GameObject.Find("Dishes").transform;
 
@@ -47,6 +52,8 @@ public class breakScript : MonoBehaviour
                     child4.layer = 9;
                     break;
             }
+            
+            gameManager.GetComponent<GameManager>().currentScore += score;
             Destroy(body);
         }
     }

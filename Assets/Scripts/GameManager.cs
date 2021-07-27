@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
         public GameObject InstructionsUI;
         public GameObject controlsUI;
         public GameObject winUI;   
+        [SerializeField] public Text scoreText;        // timer used to count down before the gameover menu spawns
     
     [Header("Game Objects")]
         [SerializeField] public GameObject playerGroup;    // Player object that is tracked for when the player dies
@@ -32,10 +33,12 @@ public class GameManager : MonoBehaviour
 
     bool gameWin = false;
     public bool isCatCaught = false;
+    public int currentScore = 0;
 
     void Start()
     {
         cam = Camera.main;
+        currentScore = 0;
     }
 
     void Update()
@@ -77,7 +80,7 @@ public class GameManager : MonoBehaviour
                 WinGame();
             }
         }
-
+        scoreText.text = "Score: " + currentScore;
         CrosshairCheck();
     }
     ////////////////////////////////////////////// CROSSHAIR /////////////////////////////////////////////////////////
