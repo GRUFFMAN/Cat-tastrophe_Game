@@ -61,7 +61,7 @@ public class Pickup : MonoBehaviour
 								{
 									heldItem = hit.transform.gameObject;
 									heldRB = hit.rigidbody;
-									if (heldItem.layer == 9)
+									if (heldItem.layer == 9 || heldItem.layer == 16)
 									{
 										itemGrabbed = true;
 										springJoint.connectedBody = heldRB;
