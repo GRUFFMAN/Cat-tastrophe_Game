@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 367190852488309677}
   - component: {fileID: 2657182660597441602}
   - component: {fileID: 2657182660597441603}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: polySurface2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4556510858183891675}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlateBroke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 267950032903892923}
   - component: {fileID: 5998709200458230554}
   - component: {fileID: 5998709200458230555}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: polySurface1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
