@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5874176542233133548}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5359598630421382678}
   - component: {fileID: 3844405802898787634}
   - component: {fileID: 6050679136731510871}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}

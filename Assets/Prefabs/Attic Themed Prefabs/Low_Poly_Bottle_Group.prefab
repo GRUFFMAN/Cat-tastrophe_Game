@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1622041677775939727}
   - component: {fileID: 6378844269842231595}
   - component: {fileID: 378775941590310427}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1551215160801389052}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Bottle_Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 2834683366610316452}
   - component: {fileID: 177908559663996893}
   - component: {fileID: 1751933569402079122}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 6902995191824142013}
   - component: {fileID: 1891648591865849902}
   - component: {fileID: 2709227770482998103}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 3075451865283564793}
   - component: {fileID: 2236135464236512154}
   - component: {fileID: 2740053975580485502}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

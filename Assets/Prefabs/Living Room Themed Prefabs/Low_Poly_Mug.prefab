@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6207207718463010361}
   - component: {fileID: 5396250115588786102}
   - component: {fileID: 7742534851893037674}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Mug
   m_TagString: Untagged
   m_Icon: {fileID: 0}

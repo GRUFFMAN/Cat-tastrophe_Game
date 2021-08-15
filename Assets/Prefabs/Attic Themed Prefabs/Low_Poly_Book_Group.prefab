@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2037939051720885427}
   - component: {fileID: 6979840043295913530}
   - component: {fileID: 6944813018377296168}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Book_Group_Low_Poly_Book6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 5655105263983629097}
   - component: {fileID: 580205309989344463}
   - component: {fileID: 3823764879524603353}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Book1_Book_Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 4599603931593085192}
   - component: {fileID: 3499030067898841875}
   - component: {fileID: 7398667910417114411}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Book_Group_Low_Poly_Book3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 5877545819384934522}
   - component: {fileID: 3105536615771099051}
   - component: {fileID: 5682868048332076934}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Book_Group_Low_Poly_Book4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7816953067631113814}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Book_Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 3524211467915075486}
   - component: {fileID: 3617252731759711988}
   - component: {fileID: 8226702457200998943}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Book_Group_Low_Poly_Book5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 7922631385625935161}
   - component: {fileID: 5626531808546749558}
   - component: {fileID: 2658576701912560037}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Book_Group_Low_Poly_Book2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

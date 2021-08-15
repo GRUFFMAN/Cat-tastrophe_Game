@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5532431337261650218}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Pot_Empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3964900638504757042}
   - component: {fileID: 5297453827151570393}
   - component: {fileID: 6352928581220318065}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Pot_Empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}

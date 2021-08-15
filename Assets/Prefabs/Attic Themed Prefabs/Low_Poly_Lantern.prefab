@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 739945201714058008}
   - component: {fileID: 5862937315490955208}
   - component: {fileID: 8520880794802883742}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lantern_Handle_Low_Poly_Lantern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 2188099019277378050}
   - component: {fileID: 6532033118146046968}
   - component: {fileID: 4269007492361197587}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Lantern_Lantern_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 8021045435426471860}
   - component: {fileID: 4843189868463942959}
   - component: {fileID: 5110933831911892596}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Lantern_Lantern_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6492747589438699426}
   - component: {fileID: 306815968073519740}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Lantern
   m_TagString: Untagged
   m_Icon: {fileID: 0}

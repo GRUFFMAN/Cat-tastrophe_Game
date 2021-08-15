@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1378620906455146169}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 98901548364561008}
   - component: {fileID: 4945392070019140939}
   - component: {fileID: 2574471188347624916}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Book
   m_TagString: Untagged
   m_Icon: {fileID: 0}

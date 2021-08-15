@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4935502558629274919}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 932058575781702543}
   - component: {fileID: 7841363237797690035}
   - component: {fileID: 6408523327113694708}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Low_Poly_Bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
