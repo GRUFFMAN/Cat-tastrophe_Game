@@ -90,29 +90,34 @@ public class PlayerController3D : MonoBehaviour
     // Fixed update for movement
     void FixedUpdate() 
     {
-        float acceleration = MaxInitialAcceleration * walkZ;
-        float currentVelocity = myRigidbody.velocity.z;
-        acceleration *= Mathf.Clamp(1.0f - (currentVelocity / maxSpeed), 0.0f, 1.0f);
-        currentVelocity += acceleration;
+        //float acceleration = MaxInitialAcceleration * walkZ;
+        //float currentVelocity = myRigidbody.velocity.z;
+        //acceleration *= Mathf.Clamp(1.0f - (currentVelocity / maxSpeed), 0.0f, 1.0f);
+        //currentVelocity += acceleration;
         
-        if(Input.GetKey(KeyCode.LeftShift)) // controls for sprint // currently a little broken for frame rate???
+        if(Input.GetKey(KeyCode.LeftShift)) // Dash / old code for sprint
         {
-            //transform.position += (transform.forward * acceleration * sprintMulitlpier) + (transform.right * speed * walkX);
-            Vector3 velocity = ((transform.forward * acceleration * sprintMulitlpier) + ((transform.right * walkX) * speed)).normalized;
-            velocity.y = myRigidbody.velocity.y;
-            myRigidbody.velocity = velocity;
+            myRigidbody.AddForce(100 * transform.forward);
+            
+            
+            
+            // Old sprint code. not working not using tbh.
+            //////////////transform.position += (transform.forward * acceleration * sprintMulitlpier) + (transform.right * speed * walkX);
+            //Vector3 velocity = ((transform.forward * acceleration * sprintMulitlpier) + ((transform.right * walkX) * speed)).normalized;
+            //velocity.y = myRigidbody.velocity.y;
+            //myRigidbody.velocity = velocity;
             
         }
-        else
+        
+        else // walk
         {
             //transform.position += (transform.forward * walkZ * speed) + (transform.right * speed * walkX);
             Vector3 velocity = (((transform.forward * walkZ) * speed) + ((transform.right * walkX) * speed));
             velocity.y = myRigidbody.velocity.y;
             myRigidbody.velocity = velocity;
-
         }
         
-        if(canVarJump == true)
+        if(canVarJump == true) // Jump
         {
             if(Input.GetKey(KeyCode.Space))
             {

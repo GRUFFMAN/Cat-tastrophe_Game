@@ -73,8 +73,8 @@ public class BreakScriptRemake : MonoBehaviour
                     child5.layer = 9;
                     break;
             }
-            GameObject gameManager = GameObject.Find("gameManager");
-            gameManager.GetComponent<GameManager>().currentScore += score;
+            //GameObject gameManager = GameObject.Find("gameManager");
+            //gameManager.GetComponent<GameManager>().currentScore += score;
             Destroy(gameObject);
     }
 }
