@@ -10,6 +10,8 @@ public class BreakScriptRemake : MonoBehaviour
     float acceleration;
     Vector3 last;
     public int score = 100;
+
+    bool canExplode = true;
     CollisionDetectionMode collisionDetectionMode;
     
     // Start is called before the first frame update
@@ -30,12 +32,13 @@ public class BreakScriptRemake : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
         //Debug.Log(acceleration);
-        if(gameObject.layer == 9)
+        if(gameObject.layer == 9 && canExplode == true)
         {
             if(acceleration > breakPoint)
             {
                 Explode();
                 //Debug.Log("I should explode");
+                canExplode = false;
             }
         }
     }
@@ -73,8 +76,8 @@ public class BreakScriptRemake : MonoBehaviour
                     child5.layer = 9;
                     break;
             }
-            //GameObject gameManager = GameObject.Find("gameManager");
-            //gameManager.GetComponent<GameManager>().currentScore += score;
+            GameObject gameManager = GameObject.Find("gameManager");
+            gameManager.GetComponent<GameManager>().currentScore += score;
             Destroy(gameObject);
     }
 }
