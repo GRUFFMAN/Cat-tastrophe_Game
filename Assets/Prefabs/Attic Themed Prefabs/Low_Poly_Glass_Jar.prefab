@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 8518648814028101827}
   - component: {fileID: 8349670486058076238}
   - component: {fileID: 47431967942149509}
-  m_Layer: 0
+  - component: {fileID: 4766518958156080918}
+  m_Layer: 9
   m_Name: Low_Poly_Glass_Jar_Glass_jar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 194953220318442951, guid: cfbbb267053bf8340b406e2399a6b420, type: 3}
+  - {fileID: 2100000, guid: f035bf53cd133cb4992f8e60498b6b70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,6 +97,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1069281620617062537, guid: cfbbb267053bf8340b406e2399a6b420, type: 3}
+--- !u!65 &4766518958156080918
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4183929019065146088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.652071, y: 0.08775711, z: 0.652071}
+  m_Center: {x: 0.0129035115, y: 0.37804604, z: 0.010253489}
 --- !u!1 &5223855089397109132
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,9 +119,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4842790350094453558}
-  - component: {fileID: 6938120326451191012}
-  - component: {fileID: 4332212773849353500}
-  m_Layer: 0
+  - component: {fileID: 1262415247479973192}
+  - component: {fileID: 7258674519441859579}
+  m_Layer: 9
   m_Name: Low_Poly_Glass_Jar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +144,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6938120326451191012
+--- !u!114 &1262415247479973192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakPoint: 3
   score: 100
---- !u!54 &4332212773849353500
+--- !u!54 &7258674519441859579
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,8 +185,7 @@ GameObject:
   - component: {fileID: 8962302387157067715}
   - component: {fileID: 8534553436372133276}
   - component: {fileID: 7238364637864838048}
-  - component: {fileID: 6142371215743356846}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Jar_Lid_Low_Poly_Glass_Jar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,8 +199,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6683725777476755320}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4842790350094453558}
@@ -242,17 +255,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6142371215743356846
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6683725777476755320}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8638955814953793749, guid: cfbbb267053bf8340b406e2399a6b420, type: 3}

@@ -26,6 +26,25 @@ public class Pickup : MonoBehaviour
 
 	}
 
+	void SetLayerRecursively(GameObject obj, int newLayer)
+    {
+        if (null == obj)
+        {
+            return;
+        }
+       
+        obj.layer = newLayer;
+       
+        foreach (Transform child in obj.transform)
+        {
+            if (null == child)
+            {
+                continue;
+            }
+            SetLayerRecursively(child.gameObject, newLayer);
+        }
+    }
+
 	void Update()
 	{
 		if (Input.GetButtonDown("Fire1"))
@@ -66,7 +85,7 @@ public class Pickup : MonoBehaviour
 										itemGrabbed = true;
 										springJoint.connectedBody = heldRB;
 										Debug.Log("Pick up an Item");
-										heldItem.layer = 12;
+										SetLayerRecursively(heldItem, 12);
 									}
 								}
 							}

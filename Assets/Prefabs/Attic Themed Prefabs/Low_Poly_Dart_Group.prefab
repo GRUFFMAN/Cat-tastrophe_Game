@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1291871354675086959}
   - component: {fileID: 1187246599925632906}
   - component: {fileID: 464838053872497512}
-  - component: {fileID: 3861432202661874175}
   - component: {fileID: 4397635098493859043}
+  - component: {fileID: 3574588090641153330}
   m_Layer: 9
   m_Name: Low_Poly_Dart1_Prop_Dart_Group
   m_TagString: Untagged
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5728408019379652260, guid: 35a700e2d634a0241a11930c73ed0330, type: 3}
+  - {fileID: 2100000, guid: adbeed765d1bc2c47a880d88486cf08c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3861432202661874175
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130910896138440374}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 242166503194189999, guid: 35a700e2d634a0241a11930c73ed0330, type: 3}
 --- !u!54 &4397635098493859043
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -113,6 +99,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!65 &3574588090641153330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130910896138440374}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61072004, y: 0.16977, z: 1.269491}
+  m_Center: {x: -0.403924, y: -0.120565, z: 0.38737047}
 --- !u!1 &4898216208027618807
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,8 +123,8 @@ GameObject:
   - component: {fileID: 4596280349776679990}
   - component: {fileID: 5476031994854269705}
   - component: {fileID: 1484563269350114191}
-  - component: {fileID: 3929115217116623327}
   - component: {fileID: 6919861389372906123}
+  - component: {fileID: 284805358741180887}
   m_Layer: 9
   m_Name: Prop_Dart_Group_Low_Poly_Dart5
   m_TagString: Untagged
@@ -174,7 +173,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3019706345790916638, guid: 35a700e2d634a0241a11930c73ed0330, type: 3}
+  - {fileID: 2100000, guid: adbeed765d1bc2c47a880d88486cf08c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -196,20 +195,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3929115217116623327
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4898216208027618807}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8427513939932140052, guid: 35a700e2d634a0241a11930c73ed0330, type: 3}
 --- !u!54 &6919861389372906123
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -226,6 +211,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!65 &284805358741180887
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4898216208027618807}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.239247, y: 0.16977, z: 0.681023}
+  m_Center: {x: -0.12884651, y: -0.120565, z: -0.77219754}
 --- !u!1 &7019452723056546428
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,8 +268,8 @@ GameObject:
   - component: {fileID: 6046023876150573878}
   - component: {fileID: 396772005953720847}
   - component: {fileID: 749298719309892995}
-  - component: {fileID: 4041323471707423331}
   - component: {fileID: 1026262654399813046}
+  - component: {fileID: 2101424152050508067}
   m_Layer: 9
   m_Name: Prop_Dart_Group_Low_Poly_Dart
   m_TagString: Untagged
@@ -320,7 +318,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5297056517826515665, guid: 35a700e2d634a0241a11930c73ed0330, type: 3}
+  - {fileID: 2100000, guid: adbeed765d1bc2c47a880d88486cf08c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -342,20 +340,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4041323471707423331
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8491397264832145635}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5114964588812621966, guid: 35a700e2d634a0241a11930c73ed0330, type: 3}
 --- !u!54 &1026262654399813046
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -372,3 +356,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!65 &2101424152050508067
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8491397264832145635}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.147026, y: 0.16977, z: 1.35402}
+  m_Center: {x: 0.025657998, y: -0.120565, z: 0.38648802}

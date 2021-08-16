@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1608887551618066944}
+  - component: {fileID: 2590173169280596485}
   m_Layer: 9
   m_Name: Low_Poly_Pear
   m_TagString: Untagged
@@ -32,6 +33,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &2590173169280596485
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096489504231551162}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1 &5955358137059645085
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +61,6 @@ GameObject:
   - component: {fileID: 1262528497740905657}
   - component: {fileID: 8868951170306972199}
   - component: {fileID: 7407755591570064317}
-  - component: {fileID: 88952648394999169}
   m_Layer: 9
   m_Name: Low_Poly_Pear_Pear_Stem
   m_TagString: Untagged
@@ -129,22 +145,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7820995590493562422, guid: 1b59ec730c6653d4490d324db1a52fb4, type: 3}
---- !u!54 &88952648394999169
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5955358137059645085}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 2
 --- !u!1 &7137066913666561743
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +157,6 @@ GameObject:
   - component: {fileID: 2591772394451437034}
   - component: {fileID: 4266556151653400386}
   - component: {fileID: 3396137806749680762}
-  - component: {fileID: 7689928722375409856}
   m_Layer: 9
   m_Name: Low_Poly_Round_Fruit_Low_Poly_Pear
   m_TagString: Untagged
@@ -242,19 +241,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 550159465710085850, guid: 1b59ec730c6653d4490d324db1a52fb4, type: 3}
---- !u!54 &7689928722375409856
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7137066913666561743}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 2
