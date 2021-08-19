@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         [SerializeField] public bool isGameOver = false;   // bool for tracking if the Game is over
         [SerializeField] public float timer = 1.2f;        // timer used to count down before the gameover menu spawns
 
-        public GameObject gerald;
+        //public GameObject gerald;
 
     private Camera cam;
 
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         
         if(isGameOver == false)                   // if the game hasn't ended
         {
-            isCatCaught = gerald.GetComponent<CatCatching>().isCaught;
+            //isCatCaught = gerald.GetComponent<CatCatching>().isCaught;
             //myobject.GetComponent<myscript>().mybool = true;
             
             
