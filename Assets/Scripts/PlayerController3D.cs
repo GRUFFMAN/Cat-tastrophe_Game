@@ -48,6 +48,8 @@ public class PlayerController3D : MonoBehaviour
     int sprintMode;
     Vector3 velocity;
 
+    public GameObject questsUI;
+
     float lastMeowTimer = 1f;
     float timer = 0;
 
@@ -84,6 +86,17 @@ public class PlayerController3D : MonoBehaviour
             }
         }
 
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            if(questsUI.activeSelf == false)
+            {
+                questsUI.SetActive(true);
+            }
+            else
+            {
+                questsUI.SetActive(false);
+            }
+        }
         
     }
 
