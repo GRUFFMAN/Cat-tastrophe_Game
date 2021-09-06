@@ -75,6 +75,16 @@ public class BreakScriptRemake : MonoBehaviour
                     child5.transform.position = gameObject.transform.position;
                     child5.layer = 9;
                     break;
+                case 6:
+                    GameObject child6 = broken.transform.GetChild(5).gameObject;
+                    child6.transform.position = gameObject.transform.position;
+                    child6.layer = 9;
+                    break;
+                case 7:
+                    GameObject child7 = broken.transform.GetChild(6).gameObject;
+                    child7.transform.position = gameObject.transform.position;
+                    child7.layer = 9;
+                    break;
             }
             GameObject gameManager = GameObject.Find("gameManager");
             gameManager.GetComponent<GameManager>().currentScore += score;

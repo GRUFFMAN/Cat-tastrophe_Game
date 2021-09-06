@@ -42,7 +42,7 @@ public class Knockable : MonoBehaviour
         { 
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
-                Debug.Log("mouse click");
+                //Debug.Log("mouse click");
                 RaycastHit hit;
                 //forceDirection = Random.Range(1, 3);
 
@@ -58,7 +58,7 @@ public class Knockable : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                Debug.Log("mouse click");
+                //Debug.Log("mouse click");
                 RaycastHit hit;
                 //forceDirection = Random.Range(1, 3);
 
