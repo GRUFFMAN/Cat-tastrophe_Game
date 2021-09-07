@@ -59,7 +59,7 @@ public class Pickup : MonoBehaviour
 			{
 				springJoint.connectedBody = null;
 				itemGrabbed = false;
-				heldItem.layer = 9;
+				SetLayerRecursively(heldItem, 9);
 			}
 		
 			else

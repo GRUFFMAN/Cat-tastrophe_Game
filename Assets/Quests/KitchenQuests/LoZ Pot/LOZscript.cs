@@ -15,7 +15,7 @@ public class LOZscript : MonoBehaviour
 
     public GameObject eInteract;
 
-    private int state;
+    private int state = 0;
 
     // Update is called once per frame
     void Update()
