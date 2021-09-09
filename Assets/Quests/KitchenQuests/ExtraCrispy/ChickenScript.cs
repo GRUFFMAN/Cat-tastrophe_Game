@@ -7,6 +7,7 @@ using Quests;
 public class ChickenScript : MonoBehaviour
 {
     public GameObject cat;
+    public GameObject chicken;
     public GameObject ovenDial;
 
     public AudioSource oven;
@@ -19,11 +20,16 @@ public class ChickenScript : MonoBehaviour
 
     public Material m_Material;
     Color chickenSkin;
+    Renderer rend;
     
     void Start()
     {
-        chickenSkin = new Color(214f,152f,40f, 1f);
-        m_Material.color = chickenSkin;
+        rend = chicken.GetComponent<Renderer>();
+        
+        chickenSkin = rend.material.color;//new Color(214f,152f,40f);
+        //m_Material.color = chickenSkin;
+        
+        
     }
     
     // Update is called once per frame
@@ -65,25 +71,25 @@ public class ChickenScript : MonoBehaviour
 
 
                 state += 1;
-                timeRemaining = 20f;
+                timeRemaining = 0f;
                 
                  //m_Material = GetComponent<Renderer>().material;
 
                 
                 break;
             }
-            case 4: // awaits meow
+            case 4: // 20 seconds of cooking and sound
             {
-                if (timeRemaining > 0)
+                if (timeRemaining < 20)
                 {
-                    timeRemaining -= Time.deltaTime;
+                    timeRemaining += Time.deltaTime;
 
                     // make colour of chicken more dark over time
-                    m_Material.color=Color.Lerp(chickenSkin, Color.black, Mathf.Abs((20f-timeRemaining)));
+                    rend.material.color=Color.Lerp(chickenSkin, Color.black, (timeRemaining/20f));
                 }
                 else
                 {
-                    oven.Stop();
+                    //oven.Stop();
 
                     // possibly play beeping noise
 
