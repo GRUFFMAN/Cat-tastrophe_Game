@@ -10,6 +10,7 @@ public class BathScript : MonoBehaviour
     public GameObject cat;
     public GameObject tap;
     public GameObject soap;
+    public GameObject particle;
 
     float timeRemaining;
     bool inBath = false;
@@ -44,13 +45,15 @@ public class BathScript : MonoBehaviour
                     timeRemaining += Time.deltaTime;
 
                     // activate particles
+                    particle.SetActive(true);
 
                     transform.position += 0.03f * transform.up * Time.deltaTime;
                 }
                 else
                 {
                     // stop particles if needed 
-                    Debug.Log("Water at max level");                  
+                    Debug.Log("Water at max level");
+                    particle.SetActive(false);                  
 
                     state += 1;
                 }
