@@ -1434,8 +1434,8 @@ MonoBehaviour:
     only in it for his money and\nto get back at her ex. And allergic \nto cats to
     boot!\n\nShe's coming over this afternoon,\nand it's up to you to wreck the house\nand
     make their evening the worst date \never\n\nUse left click and right click\nto
-    knock object left or right\n\nPress \"e\" to meow\n\nPress \"control\" to pick
-    up small \nobjects and carry them around\n"
+    knock object left or right\n\nPress \"M\" to meow\n\nPress \"Q\" to pick up small
+    \nobjects and carry them around\n"
 --- !u!223 &7706029830172682976
 Canvas:
   m_ObjectHideFlags: 0
