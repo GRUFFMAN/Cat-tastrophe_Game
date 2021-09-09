@@ -13,11 +13,6 @@ public class PlayerController3D : MonoBehaviour
         [SerializeField] public float varJumpForce = 5f;
         [SerializeField] public float rayCastDistBelow = 0.59f;
 
-    // parameters for acceleration curver on sprint
-    [Header("Spint Curve Controls")]
-        [SerializeField] float maxSpeed = 1f;
-        [SerializeField] float MaxInitialAcceleration = 0.1f;
-        [SerializeField] float sprintMulitlpier = 1.5f;
     
     // Audio Stuffs
     [Header("Audio Sounds Movement")]
@@ -45,13 +40,16 @@ public class PlayerController3D : MonoBehaviour
     bool canVarJump = false;
 
     public bool meowing = false;
-    int sprintMode;
+
     Vector3 velocity;
 
     public GameObject questsUI;
 
     float lastMeowTimer = 1f;
     float timer = 0;
+
+    bool runKey = false;
+    public float sprintSpeedIncrease = 1.5f;
 
     ///////////////////////////////////// Standard Functions //////////////////////////////////////////
 
@@ -103,32 +101,29 @@ public class PlayerController3D : MonoBehaviour
     // Fixed update for movement
     void FixedUpdate() 
     {
-        //float acceleration = MaxInitialAcceleration * walkZ;
-        //float currentVelocity = myRigidbody.velocity.z;
-        //acceleration *= Mathf.Clamp(1.0f - (currentVelocity / maxSpeed), 0.0f, 1.0f);
-        //currentVelocity += acceleration;
-        
+
         if(Input.GetKey(KeyCode.LeftShift)) // Dash / old code for sprint
         {
-            myRigidbody.AddForce(100 * transform.forward);
+            if (runKey == false) //just pressed
+            {
+                runKey = true;
+                speed *= sprintSpeedIncrease;
+            }
             
-            
-            
-            // Old sprint code. not working not using tbh.
-            //////////////transform.position += (transform.forward * acceleration * sprintMulitlpier) + (transform.right * speed * walkX);
-            //Vector3 velocity = ((transform.forward * acceleration * sprintMulitlpier) + ((transform.right * walkX) * speed)).normalized;
-            //velocity.y = myRigidbody.velocity.y;
-            //myRigidbody.velocity = velocity;
+        }   
+        else 
+        {
+            if (runKey)
+            {
+                runKey = false;
+                speed /= sprintSpeedIncrease;
+            }
             
         }
-        
-        else // walk
-        {
-            //transform.position += (transform.forward * walkZ * speed) + (transform.right * speed * walkX);
-            Vector3 velocity = (((transform.forward * walkZ) * speed) + ((transform.right * walkX) * speed));
+            velocity = (((transform.forward * walkZ) * speed) + ((transform.right * walkX) * speed));
             velocity.y = myRigidbody.velocity.y;
             myRigidbody.velocity = velocity;
-        }
+        
         
         if(canVarJump == true) // Jump
         {
@@ -153,8 +148,8 @@ public class PlayerController3D : MonoBehaviour
 
     private void PlayLandSound()
     {
-        my_AudioSource.clip = my_LandSound;
-        my_AudioSource.Play();
+        //my_AudioSource.clip = my_LandSound;
+        //my_AudioSource.Play();
     }
     
     public void PlayMeowSounds()

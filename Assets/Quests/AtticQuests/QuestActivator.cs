@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 namespace Quests
@@ -83,7 +84,10 @@ namespace Quests
             {
                 if(Input.GetKeyDown(KeyCode.E))
                 {   
-                    QuestManager.instance.SetQuestComplete("atticExit");
+                    //QuestManager.instance.SetQuestComplete("atticExit");
+
+                    SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
+
                     eToLeave.SetActive(false);
                 }
             }

@@ -29,11 +29,11 @@ namespace Quests
             {
                 EnsureInited();
                 _instance = this;
-                DontDestroyOnLoad(gameObject);
+                //DontDestroyOnLoad(gameObject);
             }
             else
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
             }
         }
 
