@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1307,7 +1307,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
 --- !u!1 &758305716165105564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,11 +1428,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "You are an elite cat warrior sent\nto destroy the evil man Gerald \nand
-    all he loves and owns\n\nUse left click and right click\nto knock object left
-    or right\n\nPress \"e\" to meow to signify \nyour hunger for destruction\n\npress
-    \"control\" to pick up small \nobject and carry them.\n\n\n        Good luck
-    soldier\n      and dont get caught !!!"
+  m_Text: "You and your loving owner \nGerald have lived together in\npeace and happiness
+    as master\nand cat for years. However, this\nlife of yours might be thrown in
+    \njeopordy as a new figure enters \nthe scene. A horrible new romantic \npartner,
+    only in it for his money and\nto get back at her ex. And allergic \nto cats to
+    boot!\n\nShe's coming over this afternoon,\nand it's up to you to wreck the house\nand
+    make their evening the worst date \never\n\nUse left click and right click\nto
+    knock object left or right\n\nPress \"e\" to meow\n\nPress \"control\" to pick
+    up small \nobjects and carry them around\n"
 --- !u!223 &7706029830172682976
 Canvas:
   m_ObjectHideFlags: 0
@@ -1535,7 +1537,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
 --- !u!1 &7706029830547053922
 GameObject:
   m_ObjectHideFlags: 0
