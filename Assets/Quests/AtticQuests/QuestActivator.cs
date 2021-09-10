@@ -22,9 +22,13 @@ namespace Quests
         public GameObject eToLeave;
         //QuestManager qm;
 
+        public int previousScore;
+
+        private GameManager gameManager; //Reference your first script here
+
         void Start()
         {
-            
+            gameManager = (GameManager) GameObject.FindObjectOfType(typeof(GameManager));
         }
         
         // Update is called once per frame
@@ -85,6 +89,10 @@ namespace Quests
                 if(Input.GetKeyDown(KeyCode.E))
                 {   
                     //QuestManager.instance.SetQuestComplete("atticExit");
+
+                    //CopyValues();
+                    gameManager.cat = null;
+                    gameManager.cam = null;
 
                     SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
 

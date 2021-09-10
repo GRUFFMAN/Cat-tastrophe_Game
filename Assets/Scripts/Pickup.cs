@@ -8,12 +8,17 @@ public class Pickup : MonoBehaviour
 	private GameObject heldItem;
 	private Rigidbody heldRB;
 
+	public GameObject pawOpen;
+	public GameObject pawClosed;
+
 	Color colourDebug = Color.red;
 	public float maxDistance = 1f;
 
 	public float maxHeldItemDist = 2.0f;
     bool itemGrabbed = false; //has an item been grabbed or not.
 	Vector3 jointPos;
+
+	private GameManager gameManager;
 
 
 	float[] lookAngles = {0f, 0.01f, -0.01f};
@@ -23,7 +28,12 @@ public class Pickup : MonoBehaviour
 
 	void Start()
 	{
+		gameManager = (GameManager) GameObject.FindObjectOfType(typeof(GameManager));
+		
+		pawClosed = gameManager.pawClosed;
+		pawOpen = GameObject.FindWithTag("PawOpen");
 
+		pawClosed.SetActive(false);
 	}
 
 	void SetLayerRecursively(GameObject obj, int newLayer)
@@ -61,6 +71,9 @@ public class Pickup : MonoBehaviour
 				itemGrabbed = false;
 				SetLayerRecursively(heldItem, 9);
 				heldItem.layer = 9;
+
+				pawClosed.SetActive(false);
+				pawOpen.SetActive(true);
 			}
 		
 			else
@@ -87,6 +100,8 @@ public class Pickup : MonoBehaviour
 										springJoint.connectedBody = heldRB;
 										//Debug.Log("Pick up an Item");
 										SetLayerRecursively(heldItem, 12);
+										pawClosed.SetActive(true);
+										pawOpen.SetActive(false);
 									}
 								}
 							}

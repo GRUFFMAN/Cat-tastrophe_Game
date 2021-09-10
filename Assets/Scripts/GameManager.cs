@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
         public GameObject winUI;   
         [SerializeField] public Text scoreText;        // timer used to count down before the gameover menu spawns
     
-    [Header("Game Objects")]
-        [SerializeField] public GameObject playerGroup;    // Player object that is tracked for when the player dies
+    //[Header("Game Objects")]
+    //    [SerializeField] public GameObject playerGroup;    // Player object that is tracked for when the player dies
     
     
     [Header("Variables")]
@@ -26,14 +26,16 @@ public class GameManager : MonoBehaviour
 
         //public GameObject gerald;
 
-    private Camera cam;
+    public Camera cam;
 
     public Image image;
     public GameObject cat;
+    public GameObject pawClosed;
 
     bool gameWin = false;
-    public bool isCatCaught = false;
+    //public bool isCatCaught = false;
     public int currentScore = 0;
+    public int previousScore = 0;
 
     public static GameManager instance;
  
@@ -43,16 +45,27 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        }else if(instance != this)
+            //currentScore = previousScore;
+        }
+        else if(instance != this)
         {
             Destroy(gameObject);
         }
+
+        instance.cam = Camera.main;
+        instance.cat = GameObject.FindWithTag("MainCamera"); 
+
     }
 
     void Start()
     {
+
         cam = Camera.main;
-        currentScore = 0;
+
+        cat = GameObject.FindWithTag("MainCamera");
+        
+    
+        //currentScore = 0;
         //DontDestroyOnLoad(gameObject);
     }
 
@@ -81,7 +94,7 @@ public class GameManager : MonoBehaviour
             //isCatCaught = gerald.GetComponent<CatCatching>().isCaught;
             //myobject.GetComponent<myscript>().mybool = true;
             
-            
+            /*
             if(isCatCaught == true)                // if game over is now true, end the game and spawn the game over menu.
             {
                 EndGame();
@@ -90,6 +103,7 @@ public class GameManager : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
 
             }
+            */
             if(gameWin == true)
             {
                 WinGame();
@@ -167,7 +181,7 @@ public class GameManager : MonoBehaviour
     public void LoadMenu()
     {
         SceneManager.LoadScene(0);
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
     public void Restart() // if restart, reload the active scene.
     {
@@ -177,7 +191,11 @@ public class GameManager : MonoBehaviour
         isGamePaused = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.None;
-        Destroy(gameObject);
+        pauseUI.SetActive(false);
+        currentScore = previousScore;
+        cat = null;
+        cam = null;
+        //Destroy(gameObject);
     }
     public void QuitGame()
     {
