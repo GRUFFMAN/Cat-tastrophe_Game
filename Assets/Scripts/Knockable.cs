@@ -49,7 +49,7 @@ public class Knockable : MonoBehaviour
                 //if (Physics.Raycast(ray, out hit, maxDistance))
                 if(Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
                 {
-                    if (hit.rigidbody != null)
+                    if (hit.rigidbody != null && hit.transform.gameObject.layer != 6)
                     {                     
                         hit.rigidbody.velocity = Vector3.zero;
                         hit.rigidbody.AddForceAtPosition(transform.right * hitForce, hit.point);                    
@@ -65,7 +65,7 @@ public class Knockable : MonoBehaviour
                 //if (Physics.Raycast(ray, out hit, maxDistance))
                 if(Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
                 {
-                    if (hit.rigidbody != null)
+                    if (hit.rigidbody != null && hit.transform.gameObject.layer != 6)
                     {
                         hit.rigidbody.velocity = Vector3.zero;
                         hit.rigidbody.AddForceAtPosition(-transform.right * hitForce, hit.point);

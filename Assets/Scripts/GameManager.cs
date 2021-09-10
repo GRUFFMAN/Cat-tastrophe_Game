@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
                 //Debug.Log("working");
                 image.GetComponent<Image>().color = Color.green; //new Color32(255,255,225,100);
             }
-            if(hitObj.layer != 9)
+            if(hitObj.layer != 6)
             {
                 //Debug.Log("working");
                 image.GetComponent<Image>().color = Color.yellow; //new Color32(255,255,225,100);
