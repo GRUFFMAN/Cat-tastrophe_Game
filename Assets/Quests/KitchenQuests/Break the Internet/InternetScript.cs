@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Quests;
 
 public class InternetScript : MonoBehaviour
 {
@@ -90,6 +91,7 @@ public class InternetScript : MonoBehaviour
                     touched = false;
 
                     // finish quest
+                    QuestManager.instance.SetQuestComplete("internetCat");
 
                     state +=1;
                 }

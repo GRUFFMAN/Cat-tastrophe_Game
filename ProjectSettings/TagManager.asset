@@ -11,6 +11,9 @@ TagManager:
   - Vent Waypoint
   - Exit
   - rupee
+  - China
+  - Glass
+  - 'Ceramic '
   layers:
   - Default
   - TransparentFX

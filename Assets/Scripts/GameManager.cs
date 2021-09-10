@@ -35,10 +35,25 @@ public class GameManager : MonoBehaviour
     public bool isCatCaught = false;
     public int currentScore = 0;
 
+    public static GameManager instance;
+ 
+    void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }else if(instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         cam = Camera.main;
         currentScore = 0;
+        //DontDestroyOnLoad(gameObject);
     }
 
     void Update()
@@ -152,14 +167,17 @@ public class GameManager : MonoBehaviour
     public void LoadMenu()
     {
         SceneManager.LoadScene(0);
+        //Destroy(gameObject);
     }
     public void Restart() // if restart, reload the active scene.
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex,LoadSceneMode.Single);
+        //SceneManager.LoadSceneAsync(1);
         Time.timeScale = 1.0f;
         isGamePaused = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.None;
+        Destroy(gameObject);
     }
     public void QuitGame()
     {
