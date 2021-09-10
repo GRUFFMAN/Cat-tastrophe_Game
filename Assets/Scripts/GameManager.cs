@@ -32,12 +32,24 @@ public class GameManager : MonoBehaviour
     public GameObject cat;
     public GameObject pawClosed;
 
-    bool gameWin = false;
-    //public bool isCatCaught = false;
+    public GameObject needle1;
+    public GameObject endScoreUI;
+
+    public bool gameWin = false;
+    public bool isCatCaught = false;
     public int currentScore = 0;
     public int previousScore = 0;
 
     public static GameManager instance;
+    public Slider slider;
+    public int gameWinInt = 0;
+
+    public bool level2 = false;
+    float levelTimer = 60f;
+    int minute = 5;
+    string timeLeft;
+    public Text TimeText; 
+    public GameObject timeUI;
  
     void Awake()
     {
@@ -46,6 +58,7 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
             //currentScore = previousScore;
+            levelTimer = 0f;
         }
         else if(instance != this)
         {
@@ -68,9 +81,33 @@ public class GameManager : MonoBehaviour
         //currentScore = 0;
         //DontDestroyOnLoad(gameObject);
     }
+    void FixedUpdate()
+    {
+        if(level2)
+        {
+            timeUI.SetActive(true);
+            levelTimer -= Time.deltaTime;
+            if(levelTimer <= 0f)
+            {
+                if(minute == 0)
+                {
+                    isCatCaught = true;
+                }
+                levelTimer = 59f;
+                minute -= 1;
+            }
+            timeLeft = minute +":" + Mathf.RoundToInt(levelTimer);
+            
+            TimeText.text = timeLeft;
+            //Debug.Log(timeLeft);
+        }
+    }
+
 
     void Update()
     {
+        
+        
         if(Input.GetKeyDown(KeyCode.Escape)) //if key escape is press
         {
             if(isGameOver == false)          // make sure the game already hasn't ended, as we wouldn't want the pause menu to apear over the gameover menu
@@ -94,23 +131,29 @@ public class GameManager : MonoBehaviour
             //isCatCaught = gerald.GetComponent<CatCatching>().isCaught;
             //myobject.GetComponent<myscript>().mybool = true;
             
-            /*
+            
             if(isCatCaught == true)                // if game over is now true, end the game and spawn the game over menu.
             {
                 EndGame();
+                EndScore(currentScore);
                 isGameOver = true;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
 
             }
-            */
-            if(gameWin == true)
+            
+            if(gameWinInt > 0 && level2 == true)
             {
                 WinGame();
+                EndScore(currentScore);
             }
         }
-        scoreText.text = "Score: " + currentScore;
+        //scoreText.text = "Score: " + currentScore;
+        slider.value = currentScore;
         CrosshairCheck();
+
+        
+
     }
     ////////////////////////////////////////////// CROSSHAIR /////////////////////////////////////////////////////////
     
@@ -155,9 +198,12 @@ public class GameManager : MonoBehaviour
     public void EndGame() // if the game is over, make the gameover UI unhidden, Freeze time
     {
         gameOverUI.SetActive(true);
+        endScoreUI.SetActive(true);
+
         pauseUI.SetActive(false);
         Time.timeScale = 0.0f;
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void Pause() // if the game is paused, make the pause UI unhidden. Freeze time
@@ -180,11 +226,21 @@ public class GameManager : MonoBehaviour
     }
     public void LoadMenu()
     {
+        gameOverUI.SetActive(false);
+        endScoreUI.SetActive(false);
+        winUI.SetActive(false);
+        
         SceneManager.LoadScene(0);
         Destroy(gameObject);
+
+        
     }
     public void Restart() // if restart, reload the active scene.
     {
+        gameOverUI.SetActive(false);
+        endScoreUI.SetActive(false);
+        winUI.SetActive(false);
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex,LoadSceneMode.Single);
         //SceneManager.LoadSceneAsync(1);
         Time.timeScale = 1.0f;
@@ -195,6 +251,8 @@ public class GameManager : MonoBehaviour
         currentScore = previousScore;
         cat = null;
         cam = null;
+
+        
         //Destroy(gameObject);
     }
     public void QuitGame()
@@ -205,8 +263,12 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         winUI.SetActive(true);
+        endScoreUI.SetActive(true);
+        pauseUI.SetActive(false);
+
         Time.timeScale = 0f;
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
     public void OpenInstructions()
     {
@@ -227,6 +289,22 @@ public class GameManager : MonoBehaviour
     {
         pauseUI.SetActive(true);
         controlsUI.SetActive(false);
+    }
+
+    public void EndScore(int currentScore)
+    {
+        float precentage = currentScore/12000f;
+        float precentageDeg = 208f * precentage;
+        var fromRotation = needle1.transform.rotation;
+        var toRotation = Quaternion.Euler(0f,0f, 104f - precentageDeg);
+        
+        needle1.transform.rotation = Quaternion.Slerp(fromRotation,toRotation,Mathf.Sin((precentage - Mathf.Floor(precentage)) * Mathf.PI));
+
+    }
+
+    public void AllQuestsComplete()
+    {
+        gameWin = true;
     }
 
 }

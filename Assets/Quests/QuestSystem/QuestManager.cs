@@ -21,6 +21,8 @@ namespace Quests
         public UnityEvent<string, QuestStatus> onQuestChangeStatus;
         public UnityEvent onAllQuestsComplete;
 
+        public GameManager gameManager;
+
         //Only allow one quest manager to exist in the scene
         //and persist it between scenes.
         public void Awake()
@@ -30,6 +32,7 @@ namespace Quests
                 EnsureInited();
                 _instance = this;
                 //DontDestroyOnLoad(gameObject);
+                gameManager = (GameManager) GameObject.FindObjectOfType(typeof(GameManager));
             }
             else
             {
@@ -154,7 +157,9 @@ namespace Quests
                     }
                     if (allComplete)
                     {
-                        onAllQuestsComplete.Invoke();
+                        //onAllQuestsComplete.Invoke();
+                        
+                        gameManager.gameWinInt += 1;
                     }
                 }
             }

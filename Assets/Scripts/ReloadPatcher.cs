@@ -14,6 +14,7 @@ public class ReloadPatcher : MonoBehaviour
         ApplyValues();
         gameManager.cat = GameObject.FindWithTag("MainCamera"); 
         gameManager.cam = Camera.main;
+        gameManager.level2 = true;
     }
 
     public void CopyValues()
