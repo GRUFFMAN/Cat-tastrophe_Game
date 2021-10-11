@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Quests;
 using UnityEngine.UI;
-using TMPro;
+//using TMPro;
 public class QuestUIItem : TrackedQuestUIItem
 {
-    public TextMeshProUGUI titleText;
+    public Text titleText;
+    public Text titleText2;
     public GameObject checkMark;
     // Start is called before the first frame update
     void Start()
@@ -24,9 +25,11 @@ public class QuestUIItem : TrackedQuestUIItem
     {
         base.Init(trackerUI, questdetails);
         titleText.text = questdetails.questName;
+        titleText2.text = questdetails.questName;
         for (int i = 0; i < questSubLevel; i++)
         {
             titleText.text = "-" + titleText.text;
+            titleText2.text = "-" + titleText2.text;
         }
         Refresh(questdetails.status);
     }
@@ -37,12 +40,13 @@ public class QuestUIItem : TrackedQuestUIItem
         if (status == QuestStatus.COMPLETE)
         {
             checkMark.SetActive(true);
-            titleText.fontStyle = FontStyles.Strikethrough;
+            //titleText.fontStyle = FontStyles.Strikethrough;
         }
         else
         {
             checkMark.SetActive(false);
-            titleText.fontStyle = FontStyles.Normal;
+            titleText.fontStyle = FontStyle.Normal;
+            titleText2.fontStyle = FontStyle.Normal;
         }
     }
 }
