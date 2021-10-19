@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
     }
     void FixedUpdate()
     {
+        /*
         if(level2)
         {
             timeUI.SetActive(true);
@@ -101,6 +102,8 @@ public class GameManager : MonoBehaviour
             TimeText.text = timeLeft;
             //Debug.Log(timeLeft);
         }
+        */
+        CrosshairCheck();
     }
 
 
@@ -150,7 +153,7 @@ public class GameManager : MonoBehaviour
         }
         //scoreText.text = "Score: " + currentScore;
         slider.value = currentScore;
-        CrosshairCheck();
+        
 
         
 
@@ -161,7 +164,7 @@ public class GameManager : MonoBehaviour
     {
         RaycastHit hit;
         GameObject hitObj;
-        float rayDist = 1.0f;
+        float rayDist = 0.5f;
 
         Vector3 point = cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0f));
         Debug.DrawRay(point, cat.transform.forward * rayDist, Color.red);
@@ -169,16 +172,17 @@ public class GameManager : MonoBehaviour
         if(Physics.Raycast(point, cat.transform.forward, out hit, rayDist))
         {
             hitObj = hit.transform.gameObject;
+            if(hitObj.layer != 6 || hitObj.layer != 0)
+            {
+                //Debug.Log("working");
+                image.GetComponent<Image>().color = Color.yellow; //new Color32(255,255,225,100);
+            }
             if(hitObj.layer == 9)
             {
                 //Debug.Log("working");
                 image.GetComponent<Image>().color = Color.green; //new Color32(255,255,225,100);
             }
-            if(hitObj.layer != 6)
-            {
-                //Debug.Log("working");
-                image.GetComponent<Image>().color = Color.yellow; //new Color32(255,255,225,100);
-            }  
+              
         }
         else
         {
