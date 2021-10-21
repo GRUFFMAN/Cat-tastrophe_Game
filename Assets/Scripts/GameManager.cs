@@ -172,7 +172,7 @@ public class GameManager : MonoBehaviour
         if(Physics.Raycast(point, cat.transform.forward, out hit, rayDist))
         {
             hitObj = hit.transform.gameObject;
-            if(hitObj.layer != 6 || hitObj.layer != 0)
+            if(hitObj.layer != 6 || hitObj.layer != 0 || hitObj.layer != 3)
             {
                 //Debug.Log("working");
                 image.GetComponent<Image>().color = Color.yellow; //new Color32(255,255,225,100);
