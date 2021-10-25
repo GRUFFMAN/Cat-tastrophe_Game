@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 6784647764043202090}
   - component: {fileID: 2921852712396612672}
   - component: {fileID: 1046417505960892394}
-  - component: {fileID: 3719121584255310515}
+  - component: {fileID: 1858132882631341327}
   m_Layer: 9
   m_Name: PlateHarB
   m_TagString: Untagged
@@ -133,8 +133,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &3719121584255310515
-MeshCollider:
+--- !u!65 &1858132882631341327
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -143,10 +143,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 3157204405345239540, guid: 12e10b5ea49e0304ea0dd016b7149f94, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.8308449, y: 0.07908699, z: 1.3564569}
+  m_Center: {x: -0.012139498, y: 0.016295498, z: -0.25275746}
 --- !u!1 &4789902312738995321
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +158,7 @@ GameObject:
   - component: {fileID: 4013178097311398223}
   - component: {fileID: 5145346116135288777}
   - component: {fileID: 4463091601895156982}
-  - component: {fileID: 6066471306880170075}
+  - component: {fileID: 7165623505336271764}
   m_Layer: 9
   m_Name: PlateHarB
   m_TagString: Untagged
@@ -246,8 +245,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &6066471306880170075
-MeshCollider:
+--- !u!65 &7165623505336271764
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -256,10 +255,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6755549057417473511, guid: 12e10b5ea49e0304ea0dd016b7149f94, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.787164, y: 0.07908699, z: 0.71697295}
+  m_Center: {x: 0.813325, y: 0.016295498, z: 0.89455587}
 --- !u!1 &4958073570064988167
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +270,7 @@ GameObject:
   - component: {fileID: 2349256287531952567}
   - component: {fileID: 6762051153080625691}
   - component: {fileID: 5210429462061634777}
-  - component: {fileID: 1887616339911113720}
+  - component: {fileID: 4118344153337858262}
   m_Layer: 9
   m_Name: PlateHarB
   m_TagString: Untagged
@@ -359,8 +357,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &1887616339911113720
-MeshCollider:
+--- !u!65 &4118344153337858262
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -369,10 +367,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4831620942048696131, guid: 12e10b5ea49e0304ea0dd016b7149f94, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.2047188, y: 0.07908699, z: 0.716973}
+  m_Center: {x: -0.156086, y: 0.016295498, z: 0.94485945}
 --- !u!1 &5622329754924993457
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +382,7 @@ GameObject:
   - component: {fileID: 7056332277209182328}
   - component: {fileID: 3927920674461627232}
   - component: {fileID: 3673319291200061301}
-  - component: {fileID: 1721781811080695376}
+  - component: {fileID: 7494326681137363516}
   m_Layer: 9
   m_Name: PlateHarB
   m_TagString: Untagged
@@ -472,8 +469,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &1721781811080695376
-MeshCollider:
+--- !u!65 &7494326681137363516
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -482,7 +479,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1851431569998383505, guid: 12e10b5ea49e0304ea0dd016b7149f94, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.5137309, y: 0.07908699, z: 0.9839049}
+  m_Center: {x: 0.63064545, y: 0.016295498, z: 0.055369478}
