@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main menu.unity
+    path: Assets/Scenes/Archived/Main menu.unity
     guid: 52aacea24b0d17c44910f6b1a2bdadee
   - enabled: 0
-    path: Assets/Scenes/Attic.unity
+    path: Assets/Scenes/Archived/Attic.unity
     guid: 49dcc045396c8554fa1160f549ad87d4
   - enabled: 0
     path: Assets/Scenes/Kitchen.unity
