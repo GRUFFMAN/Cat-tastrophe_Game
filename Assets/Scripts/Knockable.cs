@@ -73,7 +73,6 @@ public class Knockable : MonoBehaviour
                 }
             }
 
-            // in semester 2 I will combine this script and the pickup script into just one script. 
             
             if(Input.GetKeyDown(KeyCode.E)) // code for venting. I made a few assumptions when making this code that I am glad work out.
                                             // My first assumption was that unity's findgtameobjectwithtag would add objects into the array in the order they were in the heirachy

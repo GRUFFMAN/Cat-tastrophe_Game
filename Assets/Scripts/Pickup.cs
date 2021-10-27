@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     public CharacterJoint springJoint;
-	private GameObject heldItem;
+	public GameObject heldItem;
 	private Rigidbody heldRB;
 
 	public GameObject pawOpen;
@@ -71,6 +71,7 @@ public class Pickup : MonoBehaviour
 				itemGrabbed = false;
 				SetLayerRecursively(heldItem, 9);
 				heldItem.layer = 9;
+				heldItem = null;
 
 				pawClosed.SetActive(false);
 				pawOpen.SetActive(true);
