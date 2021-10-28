@@ -18,7 +18,7 @@ public class CatSense : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.O))
+        if(Input.GetKey(KeyCode.Mouse2))
         {
             for(int i= 0; i < questObjects.Length; i++)
             {
