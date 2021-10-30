@@ -18,6 +18,8 @@ TagManager:
   - PawGrab
   - PawOpen
   - QuestObject
+  - Ceramic
+  - Other
   layers:
   - Default
   - TransparentFX

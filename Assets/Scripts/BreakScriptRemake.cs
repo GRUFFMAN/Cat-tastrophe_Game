@@ -13,6 +13,9 @@ public class BreakScriptRemake : MonoBehaviour
 
     bool canExplode = true;
     CollisionDetectionMode collisionDetectionMode;
+
+    AudioSource self;
+    AudioClip soundToLoad;
     
     // Start is called before the first frame update
     void Start()
@@ -48,16 +51,20 @@ public class BreakScriptRemake : MonoBehaviour
         string type = gameObject.name + "Broke";
             //Debug.Log(type);
             GameObject broken = Instantiate(Resources.Load(type), gameObject.transform.position, rb.rotation) as GameObject;
-        if (broken.tag == "ceramic")
-        {
-            //play soundToLoad - Ceramic
-            soundToLoad = Resources.Load<Dish_Break_1>("CeramicBreakSound");
-        }
 
-        else if (broken.tag == "glass")
-        {
-            soundToLoad = Resources.Load<Glass_Shatter_1>("GlassBreakSound");
-        }
+            self = broken.GetComponent<AudioSource>();
+            if (broken.tag == "Glass")
+            {
+                soundToLoad = Resources.Load<AudioClip>("GlassBreakSound");
+            } 
+            
+            else if (broken.tag == "Other")
+            {
+                soundToLoad = Resources.Load<AudioClip>("OtherBreakSound");               
+            }
+            
+            self.clip = soundToLoad;
+            self.Play();
 
             //Switch based on number of child objects sets their position
             switch(broken.transform.childCount)

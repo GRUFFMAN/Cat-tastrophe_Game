@@ -6,15 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Archived/Main menu.unity
-    guid: 52aacea24b0d17c44910f6b1a2bdadee
-  - enabled: 0
-    path: Assets/Scenes/Archived/Attic.unity
-    guid: 49dcc045396c8554fa1160f549ad87d4
-  - enabled: 0
-    path: Assets/Scenes/Kitchen.unity
-    guid: a58dd652172fc1c458ee0351e3fc3aab
+    path: Assets/Scenes/Menu3D.unity
+    guid: c7429914beebae14d9538d15bd9f9bdc
   - enabled: 1
-    path: Assets/Scenes/Kitchen-V.2.unity
-    guid: ce3bae6bcdb9cc547b2bd6bfe968548a
+    path: Assets/Scenes/KitchenLightingRebuild.unity
+    guid: df17a33208d7290438b60355522bf34e
   m_configObjects: {}

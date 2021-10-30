@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     string timeLeft;
     public Text TimeText; 
     public GameObject timeUI;
+    AudioSource self;
  
     void Awake()
     {
@@ -76,6 +77,7 @@ public class GameManager : MonoBehaviour
         cam = Camera.main;
 
         cat = GameObject.FindWithTag("MainCamera");
+        self = GetComponent<AudioSource>();
         
     
         //currentScore = 0;
@@ -196,6 +198,10 @@ public class GameManager : MonoBehaviour
     {
         cat.GetComponent<mouse_look>().mouseSensitivity = sensMultiplier;
     }
+    //public void SetVolumeLevel(float volume)
+    //{
+        //self.volume = volume;
+    //}
 
     ////////////////////////////////////////////// ///////// /////////////////////////////////////////////////////////
 
