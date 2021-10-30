@@ -105,6 +105,14 @@ public class BreakScriptRemake : MonoBehaviour
             }
             GameObject gameManager = GameObject.Find("gameManager");
             gameManager.GetComponent<GameManager>().currentScore += score;
-            Destroy(gameObject);
+            
+            if(gameObject.name != "LOZ")
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
     }
 }

@@ -24,7 +24,7 @@ public class LOZscript : MonoBehaviour
         {
             case 0:
             {
-                if(lozPot == null)
+                if(lozPot.activeSelf == false)
                 {
                     rupee = GameObject.FindWithTag("rupee");
                     state += 1;
