@@ -48,6 +48,16 @@ public class BreakScriptRemake : MonoBehaviour
         string type = gameObject.name + "Broke";
             //Debug.Log(type);
             GameObject broken = Instantiate(Resources.Load(type), gameObject.transform.position, rb.rotation) as GameObject;
+        if (broken.tag == "ceramic")
+        {
+            //play soundToLoad - Ceramic
+            soundToLoad = Resources.Load<Dish_Break_1>("CeramicBreakSound");
+        }
+
+        else if (broken.tag == "glass")
+        {
+            soundToLoad = Resources.Load<Glass_Shatter_1>("GlassBreakSound");
+        }
 
             //Switch based on number of child objects sets their position
             switch(broken.transform.childCount)
