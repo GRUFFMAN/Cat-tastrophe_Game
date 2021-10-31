@@ -25,6 +25,7 @@ public class ChickenScript : MonoBehaviour
     void Start()
     {
         rend = chicken.GetComponent<Renderer>();
+        oven.clip = humm;
         
         chickenSkin = rend.material.color;//new Color(214f,152f,40f);
         //m_Material.color = chickenSkin;
@@ -68,10 +69,11 @@ public class ChickenScript : MonoBehaviour
                 //oven.Play();
 
                 Debug.Log("oven on");
-
+                timeRemaining = 0f;
+                oven.Play();
 
                 state += 1;
-                timeRemaining = 0f;
+                
                 
                  //m_Material = GetComponent<Renderer>().material;
 
@@ -95,6 +97,7 @@ public class ChickenScript : MonoBehaviour
 
                     // quest complete
                     QuestManager.instance.SetQuestComplete("chickenCook");
+                    oven.Stop();
 
                     state += 1;
                 }

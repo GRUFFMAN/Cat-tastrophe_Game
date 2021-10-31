@@ -82,46 +82,64 @@ public class PhoneScript : MonoBehaviour
                 else
                 {
                     phone.Stop();
-                    takeOrder.SetActive(true);
-                    
-                    if(Input.GetKeyDown(KeyCode.M))
+                    if(Vector3.Distance(cat.transform.position, phoneRec.transform.position) < 0.5f)
                     {
-                        if(Vector3.Distance(cat.transform.position, phoneRec.transform.position) < 0.5f)
+                        takeOrder.SetActive(true);
+                        
+                        if(Input.GetKeyDown(KeyCode.M))
                         {
+                            
                             takeOrder.SetActive(false);
                             state +=1;
+
                         }
+                    }
+                    else
+                    {
+                        takeOrder.SetActive(false);
                     }
                 }
                 break;
             }
             case 5: // 1 peporoni pizza?
             {
-                peperoni.SetActive(true);
-                
-                if(Input.GetKeyDown(KeyCode.M))
+                if(Vector3.Distance(cat.transform.position, phoneRec.transform.position) < 0.5f)
                 {
-                    if(Vector3.Distance(cat.transform.position, phoneRec.transform.position) < 0.5f)
+                    peperoni.SetActive(true);
+                    
+                    if(Input.GetKeyDown(KeyCode.M))
                     {
+
                         peperoni.SetActive(false);
                         state +=2;
                     }
                 }
+                else
+                {
+                    peperoni.SetActive(false);
+                }
+                
                 
                 break;
             }
             case 7: // address please?
             {
-                location.SetActive(true);
-                
-                if(Input.GetKeyDown(KeyCode.M))
+                if(Vector3.Distance(cat.transform.position, phoneRec.transform.position) < 0.5f)
                 {
-                    if(Vector3.Distance(cat.transform.position, phoneRec.transform.position) < 0.5f)
+                    location.SetActive(true);
+                    
+                    if(Input.GetKeyDown(KeyCode.M))
                     {
+                        
                         location.SetActive(false);
                         state +=2;
                         timeRemaining = 3f;
+
                     }
+                }
+                else
+                {
+                    location.SetActive(false);
                 }
 
                 break;

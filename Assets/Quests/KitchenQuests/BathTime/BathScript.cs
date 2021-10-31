@@ -11,6 +11,8 @@ public class BathScript : MonoBehaviour
     public GameObject tap;
     public GameObject soap;
     public GameObject particle;
+    AudioSource self;
+    public AudioClip water;
 
     float timeRemaining;
     bool inBath = false;
@@ -19,7 +21,8 @@ public class BathScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        self = GetComponent<AudioSource>();
+        self.clip = water;
     }
 
     // Update is called once per frame
@@ -31,8 +34,11 @@ public class BathScript : MonoBehaviour
             {  
                 if(Vector3.Distance(soap.transform.position, tap.transform.position) < 0.3f)
                 {
-                    state += 1;
                     timeRemaining = 0f;
+                    self.Play();
+                    
+                    state += 1;
+                    
 
                     Debug.Log("soap in the sink");
                 }
@@ -53,7 +59,8 @@ public class BathScript : MonoBehaviour
                 {
                     // stop particles if needed 
                     Debug.Log("Water at max level");
-                    particle.SetActive(false);                  
+                    particle.SetActive(false);    
+                    self.Stop();              
 
                     state += 1;
                 }

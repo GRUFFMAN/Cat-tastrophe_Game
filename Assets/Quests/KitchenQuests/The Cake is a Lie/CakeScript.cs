@@ -12,6 +12,9 @@ public class CakeScript : MonoBehaviour
 
     public GameObject eInteract;
 
+    AudioSource self;
+    public AudioClip mix;
+
     private float time = 0;
 
     private int state = 0;
@@ -19,7 +22,8 @@ public class CakeScript : MonoBehaviour
 
     void Start()
     {
-
+        self = GetComponent<AudioSource>();
+        self.clip = mix;
     }
 
     void Update()
@@ -153,6 +157,7 @@ public class CakeScript : MonoBehaviour
             {
                 particle.SetActive(true);
                 time = 5f;
+                self.Play();
                 state += 1;
                 break;
             }
@@ -166,6 +171,7 @@ public class CakeScript : MonoBehaviour
                 else
                 {
                     QuestManager.instance.SetQuestComplete("CakeIsALie");
+                    self.Stop();
                     state += 1; 
 
                 }
